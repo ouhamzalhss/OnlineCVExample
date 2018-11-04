@@ -1,0 +1,1528 @@
+function setCookie(name, value, expire)
+{
+	expire = typeof expire !== 'undefined' ? expire : (7 * 24 * 3600 * 1000);
+	var today = new Date();
+	today.setTime( today.getTime() );
+	var expiry = new Date(today.getTime() + expire); // plus 30 days
+	document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+};
+
+function getCookie(name)
+{
+    var re = new RegExp(name + "=([^;]+)");
+    var value = re.exec(document.cookie);
+    return (value != null) ? unescape(value[1]) : false;
+}
+
+function deleteCookie(name)
+{
+	var today = new Date();
+	today.setTime( today.getTime() );
+	var expiry = new Date(today.getTime() - 10000000); // plus 30 days
+	document.cookie=name + "=; path=/; expires=" + expiry.toGMTString();
+};
+function getScrollTop(){
+    if(typeof pageYOffset!= 'undefined'){
+        //most browsers
+        return pageYOffset;
+    }
+    else{
+        var B= document.body; //IE 'quirks'
+        var D= document.documentElement; //IE with doctype
+        D= (D.clientHeight)? D: B;
+        return D.scrollTop;
+    }
+}
+function getWindowSize(){
+	var x = 0;
+	var y = 0;
+	if (self.innerHeight)
+	{
+		x = self.innerWidth;
+		y = self.innerHeight;
+	}
+	else if (document.documentElement && document.documentElement.clientHeight)
+	{
+		x = document.documentElement.clientWidth;
+		y = document.documentElement.clientHeight;
+	}
+	else if (document.body)
+	{
+		x = document.body.clientWidth;
+		y = document.body.clientHeight;
+	}
+	return {"x":x,"y":y};
+}
+function initMenu(){
+	//On créer la fonction appelé lorsque la souris entre et sors des items du menu (valable pour les sous-menus)
+	$('#access ul li.sub.n1').hover(function(){
+		$(this).children('ul').stop(true, true).slideDown(200);
+	},function(){
+		$(this).children('ul').stop(true, true).slideUp(200);
+		$('#access .childrenLast').stop(true, true).slideUp(200);		
+	});
+	
+		$('#access ul li.sub.n2').hover(function(){
+		$(this).children('ul').stop(true, true).slideDown(200);
+
+	});
+
+	 // Anim background blocs decouvrir
+	$('.blocDecouvrir, .blocDecouvrir, .blocDecouvrir')
+	.css( {backgroundPosition: "0px -240px"} )
+	.mouseover(function(){
+	$(this).stop().animate({backgroundPosition:"(0px 0px)"}, {duration:450})
+	})
+	.mouseout(function(){
+	$(this).stop().animate({backgroundPosition:"(0px -240px)"}, {duration:200, complete:function(){
+	
+	}}) 
+	})
+
+ // plus d'informations formulaire contact & guide
+ 
+	$('#frdvInfos').click(function(){
+		$('#fsRendezVous .detail').slideDown('fast');
+		$('#frdvInfos').hide(1);
+		$('#frdvInfosHide').show(1);
+	});
+	
+	$('#frdvInfosHide').click(function(){
+		$('#fsRendezVous .detail').slideUp('fast');
+		$('#frdvInfosHide').hide(1);
+		$('#frdvInfos').show(1);
+	});
+	
+		
+// Schema definition du portage
+
+	$('#schemaPortageSalarial .bVous').hover(function(){
+		$('.fghvrVous, .fdhvrVous').stop().animate({"height": "185px"}, 590);
+		$('#e1, #e2').stop().addClass('current');
+	},function(){
+		$('.fghvrVous, .fdhvrVous').stop().animate({"height": "0px"}, 390);
+		$('#e1, #e2').stop().removeClass('current');
+	});
+	
+	
+	$('#schemaPortageSalarial .bPortageo').hover(function(){
+		$('.fdhvrpo,.fbhvrpo').stop().animate({"height": "185px"}, 590);
+		$('#e2, #e3').stop().addClass('current');
+	},function(){
+		$('.fdhvrpo, .fbhvrpo').stop().animate({"height": "0px"}, 390);	
+		$('#e2, #e3').stop().removeClass('current');
+	});
+	
+	
+	$('#schemaPortageSalarial .bClient').hover(function(){
+		$('.fghvrclient,.fbhvrclient').stop().animate({"height": "185px"}, 590);
+		$('#e1, #e3').stop().addClass('current');
+	},function(){
+		$('.fghvrclient,.fbhvrclient').stop().animate({"height": "0px"}, 390);	
+		$('#e1, #e3').stop().removeClass('current');
+	});
+
+	// Hvr portage salairal entreprises
+	
+	$('#votreSituationActuelle .solution').hover(function(){
+		$('.solution #flecheHvr').stop().animate({"height": "27px"}, 190);
+		$('.solution #thvr').delay(120).animate({"height": "57px"}, 250);		
+	},function(){
+		$('.solution #thvr').stop().animate({"height": "0"}, 250);
+		$('.solution #flecheHvr').delay(250).animate({"height": "0"}, 0);				
+
+	
+	});
+		
+		
+};
+
+function upperCase(input){
+		input.value = input.value.toUpperCase();
+	}
+function ucFirst(input){
+	input.value = input.value[0].toUpperCase()+input.value.substring(1);
+}
+function charcount(input,elmt){
+	$(elmt).text(input.value.length);
+}
+function ucWords(input){
+	var str = input.value.toLowerCase().split(' ');
+	var retour ='';
+	if ( str.length > 0) {
+		for (var i=0;i<str.length;i++){
+			if ( str[i].length > 0) {
+				if (str[i].search('-') != -1) {
+					var str2 = str[i].split('-');
+					for (var j=0;j<str2.length;j++){
+						retour += str2[j][0].toUpperCase()+str2[j].substring(1);
+						if (j != str2.length-1) retour += '-';
+					}
+				}
+				else {
+					retour += str[i][0].toUpperCase()+str[i].substring(1);
+				}
+				if (i != str.length-1) retour += ' ';
+			}
+			else retour += '';
+		}
+		input.value = retour;
+	}
+}
+function formatPhone(input){
+	val = input.value.replace(/\./g, "");
+	if(val.length == 10){
+		input.value = val.substr(0,2)+'.'+val.substr(2,2)+'.'+val.substr(4,2)+'.'+val.substr(6,2)+'.'+val.substr(8,2)
+	}
+}
+
+
+function checkPagination(hauteur){
+	 // taille du contenu			   
+  	var contHeight = $("#entry-content").height();
+  	//offset pour repositionner la page
+  	var offset = $("p#breadcrumbs").offset().top;
+  
+  	//Si la pagination est requise, on l'initialise
+  	if (contHeight > hauteur){
+	  	// ici #page est le conteneur, #entry-content le contenu, colHeight la valeur du scroll et offset-10 la position du scroll de la page lors du click sur le bouton scrolldown 
+	  	initPagination("#page","#entry-content",hauteur,offset-10);
+  	}
+}
+
+function initPagination(conteneur,contenu,hauteur,yScroll){
+	//On récupère la taille du contenu
+	var cHeight = $(contenu).height();
+	//On fixe la taille du conteneur à hauteur et on cache se qui dépasse
+	$(conteneur).css('height',hauteur+100).css('overflow','hidden');
+	
+	//On créer les boutons scrolldown et scrollup qu'on place au début et à la fin du div conteneur
+	var newHtml = '<div id="scrollup">&nbsp;</div>'+$(conteneur).html()+'<div id="scrolldown">&nbsp;</div>';
+	$(conteneur).html(newHtml);
+	
+	//On affiche le bouton scrolldown et on crée la fonction click associé
+	$('#scrolldown').show('slow').click(function(){
+		//On récupère le margin-top actuel du contenu (il sera de 0 ou inférieur)
+		var marginTop = $(contenu).css('margin-top');
+		
+		//On vérifie si on arrive à la fin du texte ou pas, si oui on fait scroller uniquement jusqu'a voir le texte entier sans laisser d'espace vide
+		if( (marginTop.replace("px","") - (hauteur*2)) <= (-cHeight) ){
+			//on arrive alors a la dernière zone de texte.
+			$(contenu).animate({'margin-top' : -(cHeight-hauteur)},1000);
+			
+			//on cache le bouton scrolldown
+			$('#scrolldown').hide('slow');
+		}
+		else {
+			//On diminue la valeur (négative) du margin-top pour faire scroller le contenu vers le haut avec une animation
+			$(contenu).animate({'margin-top' :  '-='+hauteur },1000);
+		}
+		//On affiche le bouton scrollup dans le cas ou celui-ci n'était pas visible (signifiant qu'on était en haut du texte)
+		if ( ($("#scrollup").css("display")) == "none" ) {
+				$("#scrollup").show('slow');
+		}
+		
+		//On reposition le scroll de la page pour voir le haut du texte
+		$('html, body').animate({scrollTop : yScroll},1000);
+	});
+			
+	//On crée la fonction click associé au bouton scrollup
+	$('#scrollup').click(function(){
+		var marginTop = $(contenu).css('margin-top');
+		//On vérifie si on arrive au début du texte ou pas, si oui on met le marginTop à 0 pour que le début du texte soit bien en haut de la page
+		if( parseInt(marginTop.replace('px','')) + hauteur >= 0 ){
+			//On affiche alors le début du texte en haut
+			$(contenu).animate({'margin-top' : 0 },1000);
+			
+			//on cache le bouton scrollup
+			$('#scrollup').hide('slow');
+		
+		}
+		else {
+			//On augmente la valeur (négative) du margin-top pour faire scroller le contenu vers le bas avec une animation
+			$(contenu).animate({'margin-top' : '+='+hauteur },1000);
+		}
+		//On affiche le bouton scrolldown dans le cas ou celui-ci n'était pas visible (signifiant qu'on était en bas du texte)
+		if ( ($("#scrolldown").css("display")) == "none" ) {
+			$("#scrolldown").show('slow');
+		}
+		
+	});
+	
+};
+function initFormulaireContact(type){
+	$("#human").realperson({length: 6,includeNumbers: true,regenerate:'<span class="human-regen" title="Regénerer"></span>'});
+	$("#precisionConseil").hide();
+	$("form").on('keyup','#human',function(e){
+		if ( $(this).val().length == 6 ){ $(this).valid(); }
+	});
+	$("#activite").selectmenu({
+		change: function( event, ui ) {
+			if ( $(this).val() == '0'){
+				$("div.bloc.message").addClass('required');
+			}
+			else {
+				$("div.bloc.message").removeClass('required');
+			}
+			if ( $(this).find('option:selected').attr('title') !== '' ) $(".activite .desc").text( $(this).find('option:selected').attr('title') ).slideDown();
+			else  $(".activite .desc").text( '' ).slideUp();
+		}
+	});
+	$("form").on('change','#conseil-telephone',function(e){
+		if ( $(this).is(':checked') ){ $("#precisionConseil").slideDown(); }
+		else if ( $("#precisionConseil").is(':visible') ) { $("#precisionConseil").slideUp(); }
+	}); 
+	//On crée une méthode de validation pour les noms propres
+	$.validator.addMethod("propername", function(value, element) { 
+  		return this.optional(element) || /^[a-zA-ZÀ-ÿ]+(([\'\,\.\-\ ][a-zA-ZÀ-ÿ])?[a-zA-ZÀ-ÿ]*)*$/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("address", function(value, element) { 
+  		return this.optional(element) || /^([0-9a-zA-Z'À-ÿ\s-]{1,50})$/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("zipcode", function(value, element) { 
+  		return this.optional(element) || /^[0-9]{5}$/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("phone", function(value, element) { 
+  		return this.optional(element) || /^0[1-9]([-. ]?[0-9]{2}){4}$/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("dateformat", function(value, element) { 
+  		return this.optional(element) || /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("time", function(value, element) { 
+  		return this.optional(element) || /^[0-9]{2}:[0-9]{2} $/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("isHuman", function(value, element, params) {
+		var isValid = 'false';
+		$.ajax({
+			type: "POST",
+			url: '/scripts/human.php',
+			data: "human="+value+'&humanHash='+$(element).prev(".realperson-hash").val(),
+			async: false,
+			dataType:"html",
+			success: function(msg)
+			{
+				if(msg == "true"){
+					isValid = true;
+					$(".btnSubmit").prop('disabled',false);
+				}
+				else {
+					isValid = false;
+					$(".btnSubmit").prop('disabled','disabled');
+				}
+			}
+		});
+		return isValid;
+	});
+	//On définit les règles de validation du formulaire et les messages d'erreur associés
+	$('#formulairecontact').validate({
+		rules: {
+			prenom : {
+				required : true,
+				propername : true
+			},
+			nom : {
+				required : true,
+				propername : true
+			},
+			telephone : {
+				required : true,
+				phone : true
+			},
+			email : {
+				required : true,
+				email : true
+			},
+			civilite : {
+				required : true
+			},
+			activite : {
+				required : true
+			},
+			message : {
+				required  : true,
+				minlength : 30
+			},
+			human : {
+				required : true,
+				isHuman : true
+			}
+		},
+		messages: {
+			prenom : {
+				required : "Veuillez pr&eacute;cisez votre pr&eacute;nom",
+				propername : "Le format du pr&eacute;nom est incorrect"
+			},
+			nom : {
+				required : "Veuillez pr&eacute;cisez votre nom",
+				propername : "Le format du nom est incorrect"
+			},
+			telephone : {
+				required : "Veuillez pr&eacute;cisez votre num&eacute;ro de t&eacute;l&eacute;phone",
+				phone : "Le format du t&eacute;l&eacute;phone est incorrect"
+			},
+			email : {
+				required : "Veuillez pr&eacute;cisez votre adresse email",
+				email : "Le format de l'email est incorrect"
+			},
+			civilite : {
+				required : "Veuillez pr&eacute;ciser votre civilit&eacute;"
+			},
+			activite : {
+				required : "Veuillez pr&eacute;ciser votre activit&eacute;"
+			},
+			message : {
+				required  : "Veuillez pr&eacute;ciser votre demande",
+                minlength : "Veuillez indiquer au moins 30 caractères"
+			},
+			human : {
+				required : "Veuillez indiquer le code de sécurité",
+				isHuman : "Le code de sécurité est incorrect"
+			}
+		},
+		errorPlacement: function(error, element) {
+			if ( $(element).is('#prenom,#nom,#email,#telephone') ) $(error).appendTo( $(element).closest('.float') );
+			else $(error).appendTo( $(element).closest('.bloc') );
+		},
+		errorClass : 'error',
+		validClass : 'valid',
+		highlight: function(element) {
+			$(element).closest('.bloc').removeClass("valid").addClass('error');
+		},
+		unhighlight: function(element) {
+			if ($(element).closest('.bloc').find('label.error:visible').length == 0) $(element).closest('.bloc').removeClass("error").addClass('valid');
+		},
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+};
+function initFormEntreprise(){
+	
+	//On crée une méthode de validation pour les noms propres
+	$.validator.addMethod("propername", function(value, element) { 
+  		return this.optional(element) || /^[a-zA-ZÀ-ÿ]+(([\'\,\.\-\ ][a-zA-ZÀ-ÿ])?[a-zA-ZÀ-ÿ]*)*$/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("phone", function(value, element) { 
+  		return this.optional(element) || /^0[1-9]([-. ]?[0-9]{2}){4}$/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("isHuman", function(value, element, params) {
+		var isValid = 'false';
+		$.ajax({
+			type: "POST",
+			url: '/scripts/human.php',
+			data: "human="+value+'&humanHash='+$(element).prev(".realperson-hash").val(),
+			async: false,
+			dataType:"html",
+			success: function(msg)
+			{
+				if(msg == "true"){
+					isValid = true;
+					$(".btnSubmit").button('enable');
+				}
+				else {
+					isValid = false;
+					$(".btnSubmit").button('disable');
+				}
+			}
+		});
+		return isValid;
+	});
+	$("#human").realperson({length: 6,includeNumbers : true,regenerate:'<span class="human-regen" title="Regénerer"></span>'});
+	$("form").on('keyup','#human',function(e){
+		if ( $(this).val().length == 6 ){ $(this).valid(); }
+	}); 
+	//On définit les règles de validation du formulaire et les messages d'erreur associés
+	$('#formulaireentreprise').validate({
+		rules: {
+			societe : {
+				required : true
+			},
+			prenom : {
+				required : true,
+				propername : true
+			},
+			nom : {
+				required : true,
+				propername : true
+			},
+			fonction : {
+				required : true
+			},
+			telephone : {
+				required : true,
+				phone : true
+			},
+			email : {
+				required : true,
+				email : true
+			},
+			message : {
+				required : true
+			},
+			human : {
+				required : true,
+				isHuman : true
+			}
+		},
+		messages: {
+			societe : {
+				required : "Veuillez indiquer le nom de votre société"
+			},
+			prenom : {
+				required : "Veuillez indiquer votre prénom",
+				propername : "Le format de votre prénom est invalide"
+			},
+			nom : {
+				required : "Veuillez indiquer votre nom",
+				propername : "Le format de votre nom est invalide"
+			},
+			fonction : {
+				required : "Veuillez indiquer votre poste"
+			},
+			telephone : {
+				required : "Veuillez indiquer votre numéro de téléphone",
+				propername : "Le format du numéro est invalide"
+			},
+			email : {
+				required : "Veuillez indiquer votre email",
+				email : "Le format de l'email est invalide"
+			},
+			message : {
+				required : "Veuillez préciser votre demande",
+			},
+			human : {
+				required : "Veuillez indiquer le code de sécurité",
+				isHuman : "Le code de sécurité est incorrect"
+			}
+		},
+		errorContainer: "div.listErrors",
+		errorLabelContainer: "div.listErrors ul",
+		wrapper : 'li',
+		errorClass : 'error',
+		validClass : 'valid',
+		highlight: function(element) {
+			if ($(element).is("input[type='text']") || $(element).is("textarea")){
+				$(element).prev("label").addClass("error").removeClass("valid");
+				$(element).addClass("error").removeClass("valid");
+			}
+			else{
+				$(element).parent("label").parent().children('label').addClass("error").removeClass("valid");
+				$(element).addClass("error").removeClass("valid");
+			}
+		},
+		unhighlight: function(element) {
+			if ($(element).is("input[type='text']") || $(element).is("textarea")){
+				$(element).prev("label").removeClass("error").addClass('valid');
+				$(element).removeClass("error").addClass('valid');
+			}
+			else{
+				$(element).parent("label").parent().children('label').addClass('valid');
+				$(element).removeClass("error").addClass('valid');
+			}
+		}	
+	});
+};
+function initFormulairePartenaire(){
+	$.validator.addMethod("url", function(value, element) { 
+  		return this.optional(element) || /^http\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?$/.test(value); 
+	}, "le format est incorrect");
+	$.validator.addMethod("isHuman", function(value, element, params) {
+		var isValid = 'false';
+		$.ajax({
+			type: "POST",
+			url: '/scripts/human.php',
+			data: "human="+value+'&humanHash='+$(element).prev(".realperson-hash").val(),
+			async: false,
+			dataType:"html",
+			success: function(msg)
+			{
+				if(msg == "true"){
+					isValid = true;
+					$(".btnSubmit").prop('disabled',false);
+				}
+				else {
+					isValid = false;
+					$(".btnSubmit").prop('disabled','disabled');
+				}
+			}
+		});
+		return isValid;
+	});
+	$("#human").realperson({length: 6,includeNumbers: true,regenerate:'<span class="human-regen" title="Regénerer"></span>'});
+	$("form").on('keyup','#human',function(e){
+		if ( $(this).val().length == 6 ){ $(this).valid(); }
+	}); 
+	$('#formulairepartenaire').validate({
+		rules: {
+			nomsite : {
+				required : true
+			},
+			urlsite : {
+				required : true,
+				url : true
+			},
+			urlretoursite : {
+				required : true,
+				url : true
+			},
+			imagesite : {
+				url : true
+			},
+			descriptionsite : {
+				required : true
+			},
+			human : {
+				required : true,
+				isHuman : true
+			}
+		},
+		messages: {
+			nomsite : {
+				required : "Veuillez pr&eacute;ciser le nom de votre site"
+			},
+			urlsite : {
+				required : "Veuillez pr&eacute;siser l'url de votre site",
+				url : "Le format de l'url est incorrect (ex: http://)"
+			},
+			urlretoursite : {
+				required : "Veuillez pr&eacute;siser l'url de retour de votre site",
+				url : "Le format de l'url de retour est incorrect (ex: http://)"
+			},
+			imagesite : {
+				url : "Le format de l'url de l'image est incorrect (ex: http://)"
+			},
+			descriptionsite : {
+				required : "Veuillez pr&eacute;siser la description de votre site"
+			},
+			human : {
+				required : "Veuillez préciser le code de sécurité",
+				isHuman : "Le code de sécurité est incorrect"
+			}
+		},
+		errorPlacement: function(error, element) {
+			$(error).appendTo( $(element).closest('.bloc') );
+		},
+		errorClass : 'error',
+		validClass : 'valid',
+		highlight: function(element) {
+			$(element).closest('.bloc').removeClass("valid").addClass('error');
+		},
+		unhighlight: function(element) {
+			if ($(element).closest('.bloc').find('label.error:visible').length == 0) $(element).closest('.bloc').removeClass("error").addClass('valid');
+		},
+	});
+}
+
+
+function initFormulaireParrainage(){
+	$.validator.addMethod("propername", function(value, element) { 
+  		return this.optional(element) || /^[a-zA-ZÀ-ÿ]+(([\'\,\.\-\ ][a-zA-ZÀ-ÿ])?[a-zA-ZÀ-ÿ]*)*$/.test(value); 
+	}, "le format est incorrect");
+	
+	$.validator.addMethod("phone", function(value, element) { 
+  		return this.optional(element) || /^0[1-9]([-. ]?[0-9]{2}){4}$/.test(value); 
+	}, "le format est incorrect");
+	
+	$.validator.addMethod("isHuman", function(value, element, params) {
+		var isValid = 'false';
+		$.ajax({
+			type: "POST",
+			url: '/scripts/human.php',
+			data: "human="+value+'&humanHash='+$(element).prev(".realperson-hash").val(),
+			async: false,
+			dataType:"html",
+			success: function(msg)
+			{
+				if(msg == "true"){
+					isValid = true;
+					$(".btnSubmit").prop('disabled',false);
+				}
+				else {
+					isValid = false;
+					$(".btnSubmit").prop('disabled','disabled');
+				}
+			}
+		});
+		return isValid;
+	});
+	$("#human").realperson({length: 6,includeNumbers: true,regenerate:'<span class="human-regen" title="Regénerer"></span>'});
+	$("form").on('keyup','#human',function(e){
+		if ( $(this).val().length == 6 ){ $(this).valid(); }
+	}); 
+	fVal = $('#formulaireparrainage').validate({
+		rules: {
+			nom : {
+				required : true,
+				propername : true
+			},
+			prenom : {
+				required : true,
+				propername : true
+			},
+			fprenom : {
+				required : true,
+				propername : true
+			},
+			fnom: {
+				required : true,
+				propername : true
+			},
+			ftelephone: {
+				required : true,
+				phone : true
+			},
+			femail: {
+				required : true,
+				email:true
+			},
+			human : {
+				required : true,
+				isHuman : true
+			}
+		},
+		messages: {
+			prenom : {
+				required : "Veuillez pr&eacute;cisez votre pr&eacute;nom",
+				propername : "Le format du pr&eacute;nom est incorrect"
+			},
+			nom : {
+				required : "Veuillez pr&eacute;cisez votre nom",
+				propername : "Le format du nom est incorrect"
+			},
+			fprenom : {
+				required : "Veuillez pr&eacute;cisez le pr&eacute;nom du filleul",
+				propername : "Le format du pr&eacute;nom du filleul est incorrect"
+			},
+			fnom : {
+				required : "Veuillez pr&eacute;cisez le nom du filleul",
+				propername : "Le format du nom du filleul est incorrect"
+			},
+			ftelephone : {
+				required : "Veuillez pr&eacute;cisez le t&eacute;l&eacute;phone du filleul",
+				phone : "Le format du t&eacute;l&eacute;phone est incorrect"
+			},
+			femail : {
+				required : "Veuillez pr&eacute;cisez l'email du filleul",
+				email : "Le format de l'email est incorrect"
+			},
+			human : {
+				required : "Veuillez préciser le code de sécurité",
+				isHuman : "Le code de sécurité est incorrect"
+			}
+		},
+		errorPlacement: function(error, element) {
+			$(error).appendTo( $(element).closest('.float') );
+		},
+		errorClass : 'error',
+		validClass : 'valid',
+		highlight: function(element) {
+			$(element).closest('.bloc').removeClass("valid").addClass('error');
+		},
+		unhighlight: function(element) {
+			if ($(element).closest('.bloc').find('label.error:visible').length == 0) $(element).closest('.bloc').removeClass("error").addClass('valid');
+		}
+	});
+}
+
+function number_animate(element, decimals, dec_point, thousands_sep){
+	var nbFrom = $(element).attr('from');
+	var nbTo = $(element).attr('to');
+	if ( nbFrom != nbTo ){
+		$({numberValue:nbFrom}).animate({numberValue:nbTo},{
+			duration : 600,
+			easing:'swing',
+			step:function(){
+				$(element).text( number_format(this.numberValue,decimals,dec_point,thousands_sep)  );
+			},
+			done:function(){
+				$(element).text(number_format(nbTo,decimals,dec_point,thousands_sep)).attr('from',nbTo);
+			}
+		});
+	}
+}
+function number_format(number, decimals, dec_point, thousands_sep) {
+  number = (number + '')
+    .replace(/[^0-9+\-Ee.]/g, '');
+  var n = !isFinite(+number) ? 0 : +number,
+    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+    s = '',
+    toFixedFix = function (n, prec) {
+      var k = Math.pow(10, prec);
+      return '' + (Math.round(n * k) / k)
+        .toFixed(prec);
+    };
+  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n))
+    .split('.');
+  if (s[0].length > 3) {
+    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+  }
+  if ((s[1] || '')
+    .length < prec) {
+    s[1] = s[1] || '';
+    s[1] += new Array(prec - s[1].length + 1)
+      .join('0');
+  }
+  return s.join(dec);
+}
+//DatePicker
+function initDatePicker(folder){
+	
+
+//On défini la langue du datepicker à francais 
+	$.datepicker.regional['fr'] = {
+		closeText: 'Fermer',
+		prevText: '&#x3c;Préc',
+		nextText: 'Suiv&#x3e;',
+		currentText: 'Courant',
+		monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+		'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+		monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
+		'Jul','Aoû','Sep','Oct','Nov','Déc'],
+		dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+		dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+		dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+		weekHeader: 'Sm',
+		dateFormat: 'dd/mm/yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['fr']);
+	
+	$.timepicker.regional['fr'] = { // Default regional settings
+		currentText: 'Actuelle',
+		closeText: 'Valider',
+		ampm: false,
+		timeFormat: 'hh:mm tt',
+		timeOnlyTitle: 'Choisir l\'heure',
+		timeText: '',
+		hourText: 'Heures',
+		minuteText: 'Minutes',
+		secondText: 'Secondes',
+		timezoneText: 'TimeZone',
+	};
+	$.timepicker.setDefaults($.timepicker.regional['fr']);
+	
+	
+	//Initialisation
+	$('#dateappel').datepicker({
+		dateFormat : 'dd/mm/yy',
+		showOn: 'both',
+		buttonImage: folder+'/images/calendar.png',
+		buttonImageOnly: true,
+		hideIfNoPrevNext : true,
+		showAnim: 'slideDown',
+		minDate: new Date()
+	});
+	
+};
+//Animation client reference
+function initSliderClient(tab){
+	 tableau = tab;
+	 i = 0;
+	 changeImg();
+	 setInterval('changeImg();',2000);
+};
+
+
+function changeImg(){
+	$('#imgclient').animate({'opacity':'0'},function(){
+		$(this).attr('src',tableau[i]).animate({'opacity':'1'});
+	});
+	if (i+1 < tableau.length) i++;
+	else i = 0;
+};
+
+//Slider articles
+function initSliderArticles(nb){
+	setInterval('slideArticle('+nb+')',5000);
+};
+
+function slideArticle(nb){
+	var cur_margin = $('#liste').css('margin-left');
+	
+	if(parseInt(cur_margin.replace('px','')) <= (-(220*(nb-1)))){
+		$('#liste').animate({'margin-left' : '0px'});
+	}
+	else {
+		$('#liste').animate({'margin-left' : '-='+220});
+	}
+};
+
+//Slider articles
+function initSliderTemoignages(nb){
+	setInterval('slideTemoignage('+nb+')',5000);
+};
+
+function slideTemoignage(nb){
+	var cur_margin = $('#liste2').css('margin-left');
+	
+	if(parseInt(cur_margin.replace('px','')) <= (-(143*(nb-1)))){
+		$('#liste2').animate({'margin-left' : '0px'});
+	}
+	else {
+		$('#liste2').animate({'margin-left' : '-='+143});
+	}
+};
+var saInt;
+function initSliderAccueil(){
+	
+	//On récupère le nombre de p.slider
+	var nb = $('.slider').length;
+	
+	//on initialise le bloc avec pour taille 4 fois le content
+	var sContent = $('#slider').width();
+	$('#blocSlider').css('width',(sContent*nb));
+	$('.slider').css('float','left').css('width',sContent);
+	
+	saInt = setInterval('slideAccueil('+nb+','+sContent+')',6000);
+};
+
+function slideAccueil(nb,size){
+	var cur_margin = $('#blocSlider').css('margin-left');
+	
+	if(parseInt(cur_margin.replace('px','')) <= (-(size*(nb-1)))){
+		$('#blocSlider').animate({'margin-left' : '0px'});
+		$('div.btn').removeClass('current');
+		$('#btn1').addClass('current');
+	}
+	else {
+		$('#blocSlider').animate({'margin-left' : '-='+size});
+		var nbbtn = (cur_margin.replace('px','').replace('-','')/size)+2;
+		$('div.btn').removeClass('current');
+		$('#btn'+nbbtn).addClass('current');
+	}
+}
+
+function initSliderTemoignages(){
+	var nb = ($('#temoignages .content').length / 2 );
+	setInterval('slideTemoignages('+nb+',170)',10000);
+};
+
+function slideTemoignages(nb,size){
+	var cur_margin = $('#temoignages').css('margin-top');
+	
+	if(parseInt(cur_margin.replace('px','')) <= (-(size*(nb-1)))){
+		$('#temoignages').animate({'margin-top' : '0px'});
+	}
+	else {
+		$('#temoignages').animate({'margin-top' : '-='+size});
+	}
+};
+
+function sliutton(nb){
+	
+	$('div.btn').removeClass('current');
+	$('#btn'+nb).addClass('current');
+	
+	var sContent = $('#slider').width();
+	var margin = sContent*(nb-1);
+    $('#blocSlider').animate({'margin-left' : '-'+margin});
+	clearInterval(saInt);
+	var nbt = $('.slider').length;
+	saInt = setInterval('slideAccueil('+nbt+','+sContent+')',6000);
+};
+
+function initializeCanvas() {
+	
+	$('#map_canvas').css('height',$('.bSoftBlanc').css('height'));
+	
+	switch($('#map_canvas').attr('class')){
+		case 'bordeaux' :
+			var latlng = new google.maps.LatLng(44.843722, -0.573339);
+		break;
+		case 'montpellier' :
+			var latlng = new google.maps.LatLng(43.60179,3.900562);
+		break;
+		case 'nice' :
+			var latlng = new google.maps.LatLng(43.6674799, 7.2137702);
+		break;
+		case 'lyon' :
+			var latlng = new google.maps.LatLng(45.757491, 4.861932);
+		break;
+		case 'paris' :
+			var latlng = new google.maps.LatLng(48.872028, 2.321613);
+		break;
+		case 'toulouse' :
+			var latlng = new google.maps.LatLng(43.6109005, 1.4359013);
+		break;
+		default:
+			var latlng = new google.maps.LatLng(43.610544, 1.434993);
+		break;
+	};
+    var myOptions = {
+      zoom: 16,
+      center: latlng,
+	  scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	var marker = new google.maps.Marker({
+		map: map,
+		position: latlng,
+		icon: 'http://www.portageo.fr/wp-content/themes/portageo/images/gm-icon.png'
+	});
+}
+function getCP(tc,ddvm,format){
+	format = (format == undefined)?'%':format;
+	var cp = 0;
+	if ( tc == 'cdd' ){
+		if ( ddvm < 3 ){
+			cp = tcp_cdd_3;
+		}
+		else {
+			cp = tcp_cdd_3_18;
+		}
+	}
+	else {
+		cp = tcp_cdi;
+	}
+	if (format == '1.'){
+		return (1+(cp/100));
+	}
+	else if (format == '0.'){
+		return (cp/100);
+	}
+	else {
+		return cp;
+	}
+}
+function getCS(tc,ddvm,mut,format){
+	format = (format == undefined)?'%':format;
+	var cs = 0;
+	if ( tc == 'cdd' ){
+		if ( ddvm < 3 ){
+			cs = tcs_cdd_3;
+		}
+		else {
+			cs = tcs_cdd_3_18;
+		}
+	}
+	else {
+		cs = tcs_cdi;
+	}
+	if (format == '1.'){
+		return (1+(cs/100));
+	}
+	else if (format == '0.'){
+		return (cs/100);
+	}
+	else {
+		return cs;
+	}
+}
+
+function calculSimulationPrestation(sfg,isManual){
+	$("#blocPrestation .submit .btnNouveauCalcul").show();
+	$("#sbmtPrestation").attr('disabled',true);
+	if( $(".pecdfp").hasClass('non') ){
+		$("#tfp").val('').prop('readonly',true);
+		$(".dtfp").hide();
+	}
+	else {
+		$("#tfp").prop('readonly',false);
+		$(".dtfp").show();
+	}
+	
+	var resultat = new Object();
+	resultat.form = 'prestation';
+	var ddvm = $("#ddvm").val();
+	resultat.ddvm = ddvm;
+	var mdt = $("#mdt").val();
+	resultat.mdt = mdt;
+	var mut = $("#mut").val();
+	resultat.mut = mut;
+	var tt = (mdt.indexOf('teletravail') >= 0)?teletravail:0;
+	var fpp = $("#fpp").val();
+	resultat.fpp = fpp;
+	var hon = (Math.round($("#hon").val()*100)/100);
+	resultat.hon = hon;
+	var thon = $("#thon").val();
+	resultat.thon = thon;
+	resultat.fpec = $("#fmpec").val();
+	var njfm = Math.round($("#njfm").val());
+	resultat.length = (njfm>18)?'plein':'partiel';
+	resultat.nj = njfm;
+	var pfp = (Math.round($("#tfp").val()*100)/100);
+	resultat.fps = pfp;
+	var pfm = (Math.round($("#tfm").val()*100)/100);
+	resultat.fms = pfm;
+	$.ajax({
+		  type: "GET",
+		  url: 'http://dev.portageo.fr/simulation/',
+		  data: 't=p'+((thon == 'mois')?'&cam=':'&tj=')+hon+'&nj='+njfm+'&dm='+ddvm+'&mod='+mdt+'&mut='+mut+'&fp='+pfp+'&fm='+pfm+'&fg='+sfg,
+		  success: function(data){
+			  if (data.errors !== undefined){
+			  		if ($('#blocPrestation .blocError').length == 0) {
+						$('#blocPrestation .blocFormulaire').append('<div class="blocError"><div class="title">'+data.errors.title+'</div><p>'+data.errors.message+'</p></div>');
+					}
+					var rPos = $("#formulairesimulation").offset();
+					jQuery('body,html').animate({
+						scrollTop: rPos.top-50
+					}, 1000,function(){
+						$("#resultatPrestation:visible").slideUp();
+					});
+					$("#simulationRecapBox").addClass('hidden');
+					return false;
+			  }
+			  else {
+				  $('#blocPrestation .blocError').remove();
+				  if ( data.tc !== undefined && data.sc !== undefined ) {
+					resultat.type = data.tc;
+					resultat.status = data.sc;
+					resultat.fp = data[data.tc][data.sc].pfp;
+					resultat.fpmax = data[data.tc][data.sc].fpmax;
+					if ( thon == 'mois' ) resultat.fpmin = Math.ceil(data[data.tc][data.sc].camin);
+					else resultat.fpmin = Math.ceil(data[data.tc][data.sc].tjmin);
+					resultat.sn10 = data.sn10;
+					resultat.sn8 = data.sn8;
+					resultat.sn6 = data.sn6;
+					resultat.sn5 = data.sn5;
+					resultat.sn3 = data.sn3;
+				  }
+				  else {
+					resultat.type = 'aucun';
+					resultat.status = 'aucun';
+					data.tc = (data.dm>18)?'cdi':'cdd';
+					data.sc = 'etam';
+					if ( thon == 'mois' ) resultat.honmin = Math.ceil(data.camin);
+					else resultat.honmin = Math.ceil(data.tjmin);
+				  }
+				  	if ( sfg == ''){
+						$("input[name=pfg]").prop('disabled',false);
+						if ( data.fg < 10) $("input#pfg10").prop('disabled',true);
+						if ( data.fg < 8) $("input#pfg8").prop('disabled',true);
+						if ( data.fg < 6) $("input#pfg6").prop('disabled',true);
+						if ( data.fg < 5) $("input#pfg5").prop('disabled',true);
+					}
+					$("#pfg input[value='"+data.fg+"']").prop('checked', true);
+					$("#pfg").buttonset('refresh');
+					$(".tResultat .pfg").text(data.fg+'%');
+					resultat.fg = data.fg;
+					$("#fpp").val(resultat.fp);
+					$("#pctype").val(resultat.type);
+					$("#pcstatus").val(resultat.status);
+					resultat.snv = data[data.tc][data.sc].tn;
+					
+					setNumber("#pcam",data.cam,2);
+					if ( resultat.type == 'cdi' ){
+						$('#resultatPrestation .tr.cdi').addClass('active');
+						setNumber("#pair,#prair",data[data.tc][data.sc].air,2);
+					}
+					else {
+						$('#resultatPrestation .tr.cdi').removeClass('active');
+					}
+					setNumber("#pcam",data.cam,2);
+					setNumber(".pcam",data.cam,2);
+					setNumber("#pcad,.pcad",data[data.tc][data.sc].cad,2);
+					setNumber("#pfp",data[data.tc][data.sc].fp,2);
+					setNumber("#ptfg",data[data.tc][data.sc].fg,2);
+					setNumber("#pcass",data[data.tc][data.sc].ba,2);
+					setNumber("#pcpfa",data[data.tc][data.sc].cp,2);
+					setNumber("#psb",data[data.tc][data.sc].sb,2);
+					setNumber("#pcs",data[data.tc][data.sc].cs,2);
+					setNumber("#psn",data[data.tc][data.sc].sn,2);
+					setNumber("#prfm",data[data.tc][data.sc].fm,2);
+					setNumber("#prfp",data[data.tc][data.sc].fp,2);
+					setNumber("#psnv",data[data.tc][data.sc].tn,2);
+					$("#prf").text(data[data.tc][data.sc].rf);
+					
+					if ( sfg == '' ) {
+						$("#graphiquePrestation .pfg").text(data.fg+'%');
+						setContratPrestation(resultat);
+						if (resultat.type != 'aucun') {
+							$("#resultatPrestation").removeClass('error').addClass('valid');
+							calculGraphiquePrestation(resultat);
+						}
+						else {
+							$("#resultatPrestation").removeClass('valid').addClass('error');
+						}
+					}
+					/*On initialise le calcul par salaire*/
+					if ( isManual ) {
+						$(".srType").html('un tarif de prestation');
+						$(".srMontant").html('<span class="bold">'+$("#hon").val()+' €</span> par '+$('#thon').val()+' HT');
+						$(".srJours").html('<span class="bold">'+$("#njfm").val()+' jours</span> facturés par mois');
+						$(".srDuree").html('Mission <span class="bold">'+$("#ddvm").val()+' mois</span>');
+						$(".srModalites").html('Se déroule <span class="bold">'+$("#mdt option:selected").text()+'</span>');
+						//$(".srMutuelle").html('<span class="bold">'+(($("#mut").val() == 'oui')?'Avec':'Sans')+' mutuelle</span>');
+						if ($("#fmpec").val() == 'oui') {
+							$("#simulationRecap .ssecond").show();
+							if ( $("#tfm").val() > 0) $(".srFM").html('<span class="bold">Frais de mission : '+$("#tfm").val()+' €</span>').show();
+							else $(".srFM").html('').hide();
+							if ( $("#tfp").val() > 0) $(".srFP").html('<span class="bold">Frais pro ('+resultat.fp+'%)</span> : '+$("#tfp").val()+' €').show();
+							else $(".srFP").html('').hide();
+						}
+						else $("#simulationRecap .ssecond").hide();
+						if ( resultat.type == 'aucun' ) $("#simulationRecapBox").addClass('hidden');
+						else $("#simulationRecapBox").removeClass('hidden');
+						
+						setCookie("posim",JSON.stringify(resultat));
+					}
+					
+					if ( !$("#resultatPrestation").is(':visible') ){
+						$("#resultatPrestation").slideDown();
+					}
+					return true;
+			  }
+		  }
+	});
+}
+function setContratPrestation(contrat){
+	if ( contrat.type == 'aucun' ){
+		$("#resultatContratPrestation .rsDM").text( $("#ddvm").val()+' mois');
+		$("#resultatContratPrestation .rsLTH").text(contrat.nj);
+		$("#resultatContratPrestation .rsMDT").text($("#mdt option:selected").text());
+		$("#resultatContratPrestation .honmin").text(contrat.honmin);
+		$("#resultatContratPrestation .error").show();
+		$("#resultatContratPrestation .valid").hide();
+		$(".pecdfp, #resultatContratPrestation .actions").removeClass('non fp5 fp10 fp15 fp20')
+	}
+	else {
+		if (contrat.status == 'cadre'){
+			$("#resultatContratPrestation .status").removeClass('etam').addClass('cadre').html('Statut <br/>Cadre');
+			$("#resultatContratPrestation .position").html(info_statut_cadre);
+		}
+		else {
+			$("#resultatContratPrestation .status").removeClass('cadre').addClass('etam').html('Statut Etam <br/>assimilé Cadre');
+			$("#resultatContratPrestation .position").html(info_statut_etam);
+		}
+		if (contrat.type == 'cdd'){
+			$("#resultatContratPrestation .type").removeClass('cdi').addClass('cdd').html('CDD de Portage salarial');
+			$("#resultatContratPrestation .duree").html(info_contrat_cdi+((contrat.length == 'plein')?' à temps plein':''));
+		}
+		else {
+			$("#resultatContratPrestation .type").removeClass('cdd').addClass('cdi').html('CDI de Portage salarial');
+			$("#resultatContratPrestation .duree").html(info_contrat_cdd+((contrat.length == 'plein')?' à temps plein':''));
+		}
+		if ( contrat.fp > 0){
+			$(".pecdfp, #resultatContratPrestation .actions").removeClass('non fp5 fp10 fp15 fp20').addClass("oui fp"+contrat.fp);
+			$("#tfp").prop('readonly',false);
+			$(".dtfp").show();
+		}
+		else {
+			$(".pecdfp, #resultatContratPrestation .actions").removeClass('oui fp5 fp10 fp15 fp20').addClass("non");
+			$("#tfp").val('').prop('readonly',true);
+			$(".dtfp").hide();
+		}
+		$("#resultatContratPrestation .fpmax,.dtfp .fpmax").text(contrat.fpmax);
+		$("#resultatContratPrestation .fpmin").text(contrat.fpmin);
+		$("#resultatContratPrestation .fppval,.dtfp .fppval").text(contrat.fp);
+		$("#resultatContratPrestation .error").hide();
+		$("#resultatContratPrestation .valid").show();
+	}
+	$(".resultatContrat .actions").show();
+	$("#resultatContratPrestation").show();
+}
+function calculGraphiquePrestation(contrat){
+	setNumber(".psnv10",Math.ceil(contrat.sn10),0);
+	setNumber(".psnv8",Math.ceil(contrat.sn8),0);
+	setNumber(".psnv6",Math.ceil(contrat.sn6),0);
+	setNumber(".psnv5",Math.ceil(contrat.sn5),0);
+	setNumber(".psnv3",Math.ceil(contrat.sn3),0);
+	if ( !$("#graphiquePrestation").is(':visible') ){
+		$("#graphiquePrestation").slideDown();
+	}
+	$('#graphiquePrestation .blocg').removeClass('highlight inactive');
+	if( contrat.fg < 10 ){
+		$('#graphiquePrestation .blocg.fg10').addClass('inactive');
+	}
+	if( contrat.fg < 8 ){
+		$('#graphiquePrestation .blocg.fg8').addClass('inactive');
+	}
+	if( contrat.fg < 6 ){
+		$('#graphiquePrestation .blocg.fg6').addClass('inactive');
+	}
+	if( contrat.fg < 5 ){
+		$('#graphiquePrestation .blocg.fg5').addClass('inactive');
+	}
+	$('#graphiquePrestation .blocg.fg'+contrat.fg).addClass('highlight');
+}
+function calculSimulationSalaire(ssfg,isManual){
+	$("#blocSalaire .submit .btnNouveauCalcul").show();
+	$("#sbmtSalaire").attr('disabled',true);
+	
+	var resultat = new Object();
+	resultat.form = 'salaire';
+	var ddvm = $("#sddvm").val();
+	resultat.ddvm = ddvm;
+	var mdt = $("#smdt").val();
+	resultat.mdt = mdt;
+	var mut = $("#smut").val();
+	resultat.mut = mut;
+	var tt = (mdt.indexOf('teletravail') >= 0)?teletravail:0;
+	var fpp = $("#fpp").val();
+	resultat.fpp = fpp;
+	
+	var smd = (Math.round($("#smd").val()*100)/100);
+	resultat.smd = smd;
+	var njfm = Math.round($("#snjfm").val());
+	var smt = $("#smt").val();
+	resultat.smt = smt;
+	resultat.length = (njfm>18)?'plein':'partiel';
+	resultat.nj = njfm;
+	$("#resultatSalaire .tr.header").removeClass('active');
+	
+	
+	$.ajax({
+		  type: "GET",
+		  url: 'http://dev.portageo.fr/simulation/',
+		  data: 't=s&smt='+smt+'&smd='+smd+'&nj='+njfm+'&dm='+ddvm+'&mod='+mdt+'&mut='+mut+'&fg='+ssfg,
+		  success: function(data){
+			  if (data.errors !== undefined){
+			  		if ($('#blocSalaire .blocError').length == 0) {
+						$('#blocSalaire .blocFormulaire').append('<div class="blocError"><div class="title">'+data.errors.title+'</div><p>'+data.errors.message+'</p></div>');
+					}
+					var rPos = $("#formulairesimulation").offset();
+					jQuery('body,html').animate({
+						scrollTop: rPos.top-50
+					}, 1000,function(){
+						$("#resultatSalaire:visible").slideUp();
+					});
+					$("#simulationRecapBox").addClass('hidden');
+					return false;
+			  }
+			  else {
+				  $('#blocSalaire .blocError').remove();
+				  if ( data.tc !== undefined && data.sc !== undefined ) {
+					resultat.type = data.tc;
+					resultat.status = data.sc;
+					resultat.fp = data[data.tc][data.sc].pfp;
+					resultat.fpmax = data[data.tc][data.sc].fpmax;
+					resultat.stype = smt;
+					resultat.smin = Math.ceil(data[data.tc][data.sc].smin);
+					resultat.fpmin = Math.ceil(data[data.tc][data.sc].tjmin);
+					resultat.smin8 = data.smin8;
+					resultat.smin6 = data.smin6;
+					resultat.smin5 = data.smin5;
+					resultat.smin3 = data.smin3;
+					resultat.fg = data.fg;
+					if(smt == 'net'){
+						$("#resultatSalaire .tr.header.net").addClass('active');
+						$("#resultatSalaire .tr.net").removeClass('hidden');
+					}
+					else {
+						$("#resultatSalaire .tr.header").not('.net').addClass('active');
+						$("#resultatSalaire .tr.net").addClass('hidden');
+					}
+				  }
+				  else {
+					resultat.type = 'aucun';
+					resultat.status = 'aucun';
+					data.tc = (data.dm>18)?'cdi':'cdd';
+					data.sc = 'etam';
+					resultat.smin = data.smin;
+					resultat.stype = smt;
+				  }
+					resultat.ca = data[data.tc][data.sc].cam;
+					resultat.tj =  data[data.tc][data.sc].tj;
+					resultat.fpp = data[data.tc][data.sc].pfp;
+					$(".tResultat .sfg").text(data.fg+'%');
+					//var ssnv = ssn+sfp+sfm;
+					
+					$("#sctype").val(resultat.type);
+					$("#scstatus").val(resultat.status);
+					//setNumber("#ssnv",ssnv,2);
+					//setNumber("#srfp",sfp,2);
+					//setNumber("#srfm",sfm,2);		 
+					setNumber("#ssn",data[data.tc][data.sc].sn,2);
+					setNumber("#scs",data[data.tc][data.sc].cs,2);
+					setNumber("#ssb",data[data.tc][data.sc].sb,2);
+					setNumber("#scpfa",data[data.tc][data.sc].cp,2);
+					setNumber("#scass",data[data.tc][data.sc].ba,2);
+					setNumber("#stfg",data[data.tc][data.sc].fg,2);
+					//setNumber("#sfp",sfp,2);
+					if ( resultat.type == 'cdi' ){
+						$('#resultatSalaire .tr.cdi').addClass('active');
+						setNumber("#sair",data[data.tc][data.sc].air,2);
+					}
+					else {
+						$('#resultatSalaire .tr.cdi').removeClass('active');
+					}
+					setNumber("#scad,.scad",data[data.tc][data.sc].cad,2);
+					setNumber("#scam",data[data.tc][data.sc].cam,2);
+					setNumber("#stjf",data[data.tc][data.sc].tj,2);
+					$(".snjfm").not('.tooltip').text(njfm);
+					setNumber(".scam",data[data.tc][data.sc].cam,2);
+					
+					if ( ssfg == '' ) {
+						$("#graphiqueSalaire .sfg").text(data.fg+'%');
+						setContratSalaire(resultat);
+						if (resultat.type != 'aucun') {
+							$("#resultatSalaire").removeClass('error').addClass('valid');
+							calculGraphiqueSalaire(resultat);
+						}
+						else {
+							$("#resultatSalaire").removeClass('valid').addClass('error');
+						}
+					}
+					/*On initialise le calcul par prestation*/
+					if ( isManual ) {
+						$(".srType").html('un salaire '+$("#smt").val());
+						$(".srMontant").html('Salaire '+$("#smt").val()+' de <span class="bold">'+$("#smd").val()+'€</span>');
+						$(".srJours").html('<span class="bold">'+$("#njfm").val()+' jours</span> facturés par mois');
+						$(".srDuree").html('Mission <span class="bold">'+$("#sddvm").val()+' mois</span>');
+						$(".srModalites").html('Se déroule <span class="bold">'+$("#smdt option:selected").text()+'</span>');
+						//$(".srMutuelle").html('<span class="bold">'+(($("#smut").val() == 'oui')?'Avec':'Sans')+' mutuelle</span>');
+						$("#simulationRecap .ssecond").hide();
+						if ( resultat.type == 'aucun' ) $("#simulationRecapBox").addClass('hidden');
+						else $("#simulationRecapBox").removeClass('hidden');
+					
+						$("#sbmtSalaire").attr('disabled',true);
+						$("#hon").val(data[data.tc][data.sc].tj);
+						$("#thon").val('jour');
+						$("#njfm").val(njfm);
+						$("#ddvm").val(ddvm);
+						$("#mdt").val(mdt).selectmenu('refresh');
+						$("#sfg input[value='"+data.fg+"']").prop('checked', true);
+						$("#sfg").buttonset('refresh');
+						setCookie("posim",JSON.stringify(resultat));
+						calculSimulationPrestation('',false);
+					}
+					
+					if ( !$("#resultatSalaire").is(':visible') ){
+						$("#resultatSalaire").slideDown();
+					}
+					return true;
+			  }
+		  }
+	});
+}
+function setContratSalaire(contrat){
+	if ( contrat.type == 'aucun' ){
+		$("#resultatContratSalaire .rsDM").text( $("#sddvm").val()+' mois');
+		$("#resultatContratSalaire .rsMDT").text($("#smdt option:selected").text());
+		$("#resultatContratSalaire .rsLTH").text(contrat.nj);
+		$("#resultatContratSalaire .rsSType").text(contrat.stype);
+		$("#resultatContratSalaire .rsSMin").text(contrat.smin);
+		$("#resultatContratSalaire .error").show();
+		$("#resultatContratSalaire .valid").hide();
+		$(".pecdfp").removeClass('oui fp20 fp15 fp10 fp5')
+	}
+	else {
+		if (contrat.status == 'cadre'){
+			$("#resultatContratSalaire .status").removeClass('etam').addClass('cadre').html('Statut <br/>Cadre');
+			$("#resultatContratSalaire .position").html(info_statut_cadre);
+		}
+		else {
+			$("#resultatContratSalaire .status").removeClass('cadre').addClass('etam').html('Statut Etam <br/>assimilé Cadre');
+			$("#resultatContratSalaire .position").html(info_statut_etam);
+		}
+		if (contrat.type == 'cdd'){
+			$("#resultatContratSalaire .type").removeClass('cdi').addClass('cdd').html('CDD de Portage salarial');
+			$("#resultatContratSalaire .duree").html(info_contrat_cdi+((contrat.length == 'plein')?' à temps plein':''));
+		}
+		else {
+			$("#resultatContratSalaire .type").removeClass('cdd').addClass('cdi').html('CDI de Portage salarial');
+			$("#resultatContratSalaire .duree").html(info_contrat_cdd+((contrat.length == 'plein')?' à temps plein':''));
+		}
+		if ( contrat.fp > 0 ){
+			$(".pecdfp").removeClass('non fp20 fp15 fp10 fp5').addClass("oui fp"+contrat.fp);
+			$("#resultatContratSalaire .fpmin").text(contrat.fpmin);
+			$("#resultatContratSalaire .fpmax").text(contrat.fpmax);
+			$("#resultatContratSalaire .fppval").text(contrat.fp);
+		}
+		else {
+			$(".pecdfp").removeClass('oui fp20 fp15 fp10 fp5').addClass("non");
+			$(".pecdfp .minimum").text(contrat.fpmin+" €");
+			$("#resultatContratSalaire .fpmin").text(contrat.fpmin);
+		}
+		$("#resultatContratSalaire .error").hide();
+		$("#resultatContratSalaire .valid").show();
+	}
+	$(".resultatContrat .actions").show();
+	$("#resultatContratSalaire").show();
+}
+function calculGraphiqueSalaire(contrat){
+	setNumber(".psmd"+contrat.fg,Math.ceil($("#smd").val()),0);
+	setNumber(".psmd8",Math.ceil(contrat.smin8,0));	
+	setNumber(".psmd6",Math.ceil(contrat.smin6,0),0);
+	setNumber(".psmd5",Math.ceil(contrat.smin5,0),0);
+	setNumber(".psmd3",Math.ceil(contrat.smin3,0),0);
+	if ( !$("#graphiqueSalaire").is(':visible') ){
+		$("#graphiqueSalaire").slideDown();
+	}
+	$('#graphiqueSalaire .blocg').removeClass('highlight inactive');
+	if( contrat.fg < 10 ){
+		$('#graphiqueSalaire .blocg.fg10').addClass('inactive');
+	}
+	if( contrat.fg < 8 ){
+		$('#graphiqueSalaire .blocg.fg8').addClass('inactive');
+	}
+	if( contrat.fg < 6 ){
+		$('#graphiqueSalaire .blocg.fg6').addClass('inactive');
+	}
+	if( contrat.fg < 5 ){
+		$('#graphiqueSalaire .blocg.fg5').addClass('inactive');
+	}
+	$('#graphiqueSalaire .blocg.fg'+contrat.fg).addClass('highlight');
+}
+function setNumber(selector,value,decimals){
+	$(selector).attr('to',value);
+	if( $(selector).is(':onScreen') && $(selector).is(':visible') ){
+		number_animate($(selector),decimals,'.',' ');
+	}
+}
+
+function initFaq(){
+	$("#faqNavi").on('click','a',function(){
+		var pos = $($(this).attr('href')).offset();
+		$('body,html').animate({
+		scrollTop: pos.top-50
+		}, 500);
+	});
+	$("#faq").on('click','.question,.after',function(){
+		var cItem = $(this).closest('.item');
+		if ( $(cItem).hasClass('active') ){
+			$(cItem).removeClass('active').find('.reponse').slideUp();
+		}
+		else {
+			if ($(".item.active").length > 0) {
+				$(".item.active").removeClass('active').find('.reponse').slideUp(500,function(){
+					$(cItem).addClass('active').find('.reponse').slideDown(function(){
+						var ipos = $(cItem).offset();
+						var ih = $(cItem).height();
+						var wh = $(window).height();
+						var dst = $(document).scrollTop();
+						if ( ipos.top+ih > dst+wh ) {
+							if ( ih+40 < wh ) var sTo = (ipos.top-wh+ih+40);
+							else var sTo = ipos.top-40;
+							$('body,html').animate({
+							scrollTop: sTo
+							}, 500);
+						}
+						else if (ipos.top < dst){
+							$('body,html').animate({
+							scrollTop: ipos.top-40
+							}, 500);
+						}
+					});
+				});
+			}
+			else {
+				$(cItem).addClass('active').find('.reponse').slideDown(function(){
+					var ipos = $(cItem).offset();
+					var ih = $(cItem).height();
+					var wh = $(window).height();
+					var dst = $(document).scrollTop();
+					if ( ipos.top+ih > dst+wh ) {
+						if ( ih+40 < wh ) var sTo = (ipos.top-wh+ih+40);
+						else var sTo = ipos.top-40;
+						$('body,html').animate({
+						scrollTop: sTo
+						}, 500);
+					}
+					else if (ipos.top < dst){
+						$('body,html').animate({
+						scrollTop: ipos.top-40
+						}, 500);
+					}
+				});
+			}
+			
+		}
+	});
+}

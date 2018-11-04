@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<!-- saved from url=(0110)https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles -->
+<html class="js  supports no-touchevents cssfilters" lang="fr" prefix="og: http://ogp.me/ns#" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+                            Migrations et modèles - Découvrez le framework PHP Laravel - OpenClassrooms
+                    </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" id="analytics-js" async="" src="https://cdn.segment.io/analytics.js/v1/mou95e6tdn/analytics.min.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="application-name" content="OpenClassrooms">
+<meta name="msapplication-TileColor" content="#e95325">
+<meta name="msapplication-TileImage" content="/fav-icon.png?v=3">
+<meta name="theme-color" content="#E95325">
+<link rel="icon" sizes="144x144" href="https://openclassrooms.com/fav-icon.png?v=2">
+<link rel="apple-touch-icon" href="https://openclassrooms.com/apple-touch-icon.png?v=2">
+<link rel="apple-touch-icon" href="https://openclassrooms.com/apple-touch-icon-iphone.png?v=2">
+<link rel="apple-touch-icon" sizes="72x72" href="https://openclassrooms.com/apple-touch-icon-ipad.png?v=2">
+<link rel="apple-touch-icon" sizes="114x114" href="https://openclassrooms.com/apple-touch-icon-iphone-retina-display.png?v=2">
+<link rel="apple-touch-icon" sizes="144x144" href="https://openclassrooms.com/apple-touch-icon-ipad-retina-display.png?v=2">
+<link rel="apple-touch-icon-precomposed" href="https://openclassrooms.com/apple-touch-icon-precomposed.png?v=2">
+<link rel="shortcut icon" href="https://openclassrooms.com/favicon.ico?ac091dc">
+<link href="./Migrations et modèles - Découvrez le framework PHP Laravel - OpenClassrooms_files/master-bff592f7.css" type="text/css" rel="stylesheet" media="all">
+<link href="./Migrations et modèles - Découvrez le framework PHP Laravel - OpenClassrooms_files/main-46ba6659.css" type="text/css" rel="stylesheet" media="all">
+<link href="./Migrations et modèles - Découvrez le framework PHP Laravel - OpenClassrooms_files/video-js.css" rel="stylesheet">
+<script>
+    /*! modernizr 3.3.1 (Custom Build) | MIT *
+    * https://modernizr.com/download/?-cssfilters-touchevents-setclasses !*/
+    !function(e,n,t){function o(e,n){return typeof e===n}function r(){var e,n,t,r,s,i,a;for(var l in C)if(C.hasOwnProperty(l)){if(e=[],n=C[l],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(r=o(n.fn,"function")?n.fn():n.fn,s=0;s<e.length;s++)i=e[s],a=i.split("."),1===a.length?Modernizr[a[0]]=r:(!Modernizr[a[0]]||Modernizr[a[0]]instanceof Boolean||(Modernizr[a[0]]=new Boolean(Modernizr[a[0]])),Modernizr[a[0]][a[1]]=r),g.push((r?"":"no-")+a.join("-"))}}function s(e){var n=w.className,t=Modernizr._config.classPrefix||"";if(x&&(n=n.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(o,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),x?w.className.baseVal=n:w.className=n)}function i(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):x?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function a(){var e=n.body;return e||(e=i(x?"svg":"body"),e.fake=!0),e}function l(e,t,o,r){var s,l,u,f,p="modernizr",c=i("div"),d=a();if(parseInt(o,10))for(;o--;)u=i("div"),u.id=r?r[o]:p+(o+1),c.appendChild(u);return s=i("style"),s.type="text/css",s.id="s"+p,(d.fake?d:c).appendChild(s),d.appendChild(c),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(n.createTextNode(e)),c.id=p,d.fake&&(d.style.background="",d.style.overflow="hidden",f=w.style.overflow,w.style.overflow="hidden",w.appendChild(d)),l=t(c,e),d.fake?(d.parentNode.removeChild(d),w.style.overflow=f,w.offsetHeight):c.parentNode.removeChild(c),!!l}function u(e,n){return!!~(""+e).indexOf(n)}function f(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function p(e,n){return function(){return e.apply(n,arguments)}}function c(e,n,t){var r;for(var s in e)if(e[s]in n)return t===!1?e[s]:(r=n[e[s]],o(r,"function")?p(r,t||n):r);return!1}function d(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function m(n,o){var r=n.length;if("CSS"in e&&"supports"in e.CSS){for(;r--;)if(e.CSS.supports(d(n[r]),o))return!0;return!1}if("CSSSupportsRule"in e){for(var s=[];r--;)s.push("("+d(n[r])+":"+o+")");return s=s.join(" or "),l("@supports ("+s+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return t}function h(e,n,r,s){function a(){p&&(delete k.style,delete k.modElem)}if(s=o(s,"undefined")?!1:s,!o(r,"undefined")){var l=m(e,r);if(!o(l,"undefined"))return l}for(var p,c,d,h,v,y=["modernizr","tspan","samp"];!k.style&&y.length;)p=!0,k.modElem=i(y.shift()),k.style=k.modElem.style;for(d=e.length,c=0;d>c;c++)if(h=e[c],v=k.style[h],u(h,"-")&&(h=f(h)),k.style[h]!==t){if(s||o(r,"undefined"))return a(),"pfx"==n?h:!0;try{k.style[h]=r}catch(g){}if(k.style[h]!=v)return a(),"pfx"==n?h:!0}return a(),!1}function v(e,n,t,r,s){var i=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+j.join(i+" ")+i).split(" ");return o(n,"string")||o(n,"undefined")?h(a,n,r,s):(a=(e+" "+E.join(i+" ")+i).split(" "),c(a,n,t))}function y(e,n,o){return v(e,t,t,n,o)}var g=[],C=[],S={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){C.push({name:e,fn:n,options:t})},addAsyncTest:function(e){C.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=S,Modernizr=new Modernizr;var w=n.documentElement,x="svg"===w.nodeName.toLowerCase(),_=S._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];S._prefixes=_;var b="CSS"in e&&"supports"in e.CSS,T="supportsCSS"in e;Modernizr.addTest("supports",b||T);var z=S.testStyles=l;Modernizr.addTest("touchevents",function(){var t;if("ontouchstart"in e||e.DocumentTouch&&n instanceof DocumentTouch)t=!0;else{var o=["@media (",_.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");z(o,function(e){t=9===e.offsetTop})}return t});var P="Moz O ms Webkit",j=S._config.usePrefixes?P.split(" "):[];S._cssomPrefixes=j;var E=S._config.usePrefixes?P.toLowerCase().split(" "):[];S._domPrefixes=E;var N={elem:i("modernizr")};Modernizr._q.push(function(){delete N.elem});var k={style:N.elem.style};Modernizr._q.unshift(function(){delete k.style}),S.testAllProps=v,S.testAllProps=y,Modernizr.addTest("cssfilters",function(){if(Modernizr.supports)return y("filter","blur(2px)");var e=i("a");return e.style.cssText=_.join("filter:blur(2px); "),!!e.style.length&&(n.documentMode===t||n.documentMode>9)}),r(),s(g),delete S.addTest,delete S.addAsyncTest;for(var A=0;A<Modernizr._q.length;A++)Modernizr._q[A]();e.Modernizr=Modernizr}(window,document);
+    </script>
+<script type="text/javascript">
+    var App = {
+        startTime: (new Date()).getTime(),
+        pageGenerationDate: 1534679627000
+    };
+
+    App.user = {
+                    id: 7834454,
+            age: '28',
+            createdAt: '2016\u002D10\u002D10T09\u003A40\u003A27\u002B02\u003A00',
+            gender: 'M',
+            premiumType: '',
+            locale: 'fr',
+            language: 'fr',
+            displayableName: '\u00D6\u00FB\u0020H\u00E3mzz\u00E1',
+            email: 'tanougha2013\u0040gmail.com',
+            country: '',
+            phoneNumber: '',
+            avatar: '\/bundles\/common\/images\/avatar_defaut.png',
+            isPremium: false
+            };
+
+    App.preferences = {
+        debug: false,
+        assetVersion: 'ac091dc',
+        contactMail: 'hello\u0040openclassrooms.com',
+        adyenPublicKey: '10001\u007C889EBFD4D434B82683E21DCA26E77C3E20E0EE09A5ECE3830B0ED51F2FA721A2F7E9EC871C6AB9A1E12C4492F4717673047757E02C5256D8E265CD51E413E5EFCCFEAC41B39C662A424ADC13EE187C38C372A7FCCEC1EA5DF841989437D78B252A8EB51008E60BB55B1E55A7A80DE1A9D60D998C128A576BFAE1DDB97D514AF0A073AEDDE84CEE40D1F8F6ECE85D0FFA50C95C06DB274021C1371376C6EB16561FD65C5E2704B570A7504D617D0F3820F176A0609F6162BDF5890533289FDC3DA7DB03B50BB3BD60A613E1FF72060F22987627E8F1A29F0128A94EC4C8FF7CF6B7AB9558D8433BF86D7A388AB927641CD6C02689139CEE3AAC9ACBFFE83806CB',
+        cdnImage: true,
+        layer: {
+            appId: 'layer\u003A\/\/\/apps\/staging\/7757c53a\u002Db2ba\u002D11e5\u002Db2a6\u002D2584730b1501',
+            identityProviderUrl: '\/ajax\/conversations\/get\u002Didentity\u002Dtoken'
+        },
+        algolia: {
+            appId: 'JGRXRFVQM0',
+            apiKey: 'dfbdea500cb0b5f46e449ad334916c44',
+            indexName: 'prod_v2_COURSES_fr'
+        },
+        routes: {
+            COURSE_EVENT: '/components/courses/:courseId',
+            COURSE_PART_EVENT: '/components/courses/:courseId/parts/:partId',
+
+            ACCEPT_COOKIE: '\/fr\/components\/user\u002Daccept\u002Dconsent\u002Dcookie'
+        },
+
+                    };
+
+    App.preferences.navigationPreference = {
+                                };
+
+    App.preferences.modules = {
+        'smiley': {
+            basePath: '/bundles/common/images/smiley/'
+        }
+    };
+
+    try {
+        App.api = JSON.parse("\u007B\u0022anonymous\u0022\u003A\u007B\u0022client_id\u0022\u003A\u0022807605274673228623802113\u0022,\u0022client_secret\u0022\u003A\u00221\u0022\u007D,\u0022logged\u0022\u003A\u007B\u0022client_id\u0022\u003A\u00227xPFDY3bB3ruX44z\u0022\u007D,\u0022urls\u0022\u003A\u007B\u0022authorize\u0022\u003A\u0022https\u003A\\\/\\\/openclassrooms.com\\\/oauth2\\\/authorize\u0022,\u0022root\u0022\u003A\u0022https\u003A\\\/\\\/api.openclassrooms.com\u0022\u007D\u007D");
+    } catch (e) {
+        App.api = {};
+    }
+
+    App.notifications = {};
+    App.scripts = [];
+</script>
+<script>    
+    App.preferences.modules['course/view/internalFolding'] = {
+        isBigCourse: true
+    };
+
+    App.data = App.data || {};
+App.data.currentCourse = {"partId":3617473,"partTitle":"Migrations et mod\u00e8les","partSlug":"migrations-et-modeles-1","courseId":3613341,"courseTitle":"D\u00e9couvrez le framework PHP Laravel","courseSlug":"decouvrez-le-framework-php-laravel-1","courseLanguage":"fr","isIntroduction":false,"isCertifying":true};
+App.preferences.modules['view/currentCoursePage'] = App.data.currentCourse;
+
+</script>
+<meta property="og:locale" content="fr">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Migrations et modèles">
+<meta property="og:url" content="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles">
+<meta property="og:site_name" content="OpenClassrooms">
+<meta property="og:image" content="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/courses/3613341/14582953884409_illu_decouvrez-le-framework-php-laravel.png">
+<meta property="og:description" content="Laravel est un nouveau framework PHP qui a le vent en poupe, notamment aux États-Unis. Découvrez son fonctionnement pas à pas dans ce cours !">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@OCFrance">
+<meta name="twitter:title" content="Migrations et modèles">
+<meta name="twitter:image" content="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/courses/3613341/14582953884409_illu_decouvrez-le-framework-php-laravel.png">
+<meta name="twitter:description" content="Laravel est un nouveau framework PHP qui a le vent en poupe, notamment aux États-Unis. Découvrez son fonctionnement pas à pas dans ce cours !">
+<link rel="canonical" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles">
+</head>
+<body class="course oc-body is-connected ">
+<ul class="skipLink">
+<li>
+<a class="skipLink__item" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#mainContent">Aller au contenu</a>
+</li>
+<li>
+<a class="skipLink__item" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#footerChangeLanguage">Choisir la langue</a>
+</li>
+<li>
+<a class="skipLink__item" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#algolia-search-input">Aller à la recherche</a>
+</li>
+</ul>
+<div id="react_root"></div>
+<script id="_EVENTS-IDENTIFY" type="application/json">
+        {
+            "type": "identify",
+            "userId": "7834454",
+            "properties": {
+                "age":  "28",
+                "name": "Öû Hãmzzá",
+                "createdAt": "2016-10-10T09:40:27+02:00",
+                "email": "tanougha2013@gmail.com",
+                "gender":  "M",
+                "premium": false,
+                "premiumType": "",
+                "locale": "fr",
+                "language": "fr"
+            },
+            "integrations": {
+                "HubSpot": false
+            }
+        }
+    </script>
+<script id="_EVENTS-PAGE" type="application/json">
+        {
+            "type": "page",
+            "integrations": {
+                "HubSpot": false
+            }
+        }
+    </script>
+<header role="banner" id="oc-header" class="js-tabs-mobile mainHeader mainHeader--loggedUser 
+        ">
+<!--[if lt IE 10]>
+<div class="disclaimer  disclaimer-error">
+    Vous utilisez un navigateur obsolète, veuillez le <a href="https://browser-update.org/update.html">mettre à jour</a>.
+</div>
+<![endif]-->
+
+<div id="ie-ten-disclaimer" class="disclaimer disclaimer-error" style="display:none">
+Vous utilisez un navigateur obsolète, veuillez le <a href="https://browser-update.org/update.html">mettre à jour</a>.
+</div>
+<script>
+    if (document.documentMode === 10) {
+        document.getElementById('ie-ten-disclaimer').style.display = 'block';
+    }
+</script>
+
+<noscript>
+    <div class="disclaimer  disclaimer--error">
+        Veuillez utiliser un <a href="https://browser-update.org/update.html">navigateur internet moderne</a> avec JavaScript activé pour naviguer sur OpenClassrooms.com
+    </div>
+</noscript>
+<template class="hidden" id="cookies-banner-content"></template>
+<template class="hidden" id="cookies-banner-label"></template>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="mainHeader__wrapper">
+<div class="mainHeader__inner">
+<div class="mainHeader__logoWrapper">
+<a href="https://openclassrooms.com/fr/" class="mainHeader__logo">
+<span class="a11y">OpenClassrooms.com</span>
+</a>
+</div>
+<div class="mainHeader__content">
+<div id="tab-main" class="mainHeader__tabs">
+<div class="mainHeader__container mainHeader__container--mainMenu">
+<nav id="main-menu-navigation" role="navigation" aria-label="Menu principal" class="mainHeader__mainMenu">
+<ul class="mainTopNav">
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item mainTopNav--pathsIsActive" href="https://openclassrooms.com/fr/paths">Parcours</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item mainTopNav--coursesIsActive" href="https://openclassrooms.com/fr/courses">Cours</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item mainTopNav--forumIsActive" href="https://openclassrooms.com/forum/">Forums</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item mainTopNav--premiumIsActive" href="https://openclassrooms.com/fr/premium">Premium</a>
+</li>
+<li class="mainTopNav__itemContainer">
+<a class="mainTopNav__item mainTopNav__itemForBusiness" lang="en" href="https://openclassrooms.com/fr/for-business?utm_source=oc&amp;utm_medium=website&amp;utm_content=b2c_header">For Business</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="mainHeader__container  mainHeader__container--search">
+<div id="tab-search" class="mainHeader__search  js-header-searchContainer">
+<div role="search" class="js-courseSearch  topSearchBox">
+<form class="js-courseSearch-form  oc-form" action="https://openclassrooms.com/fr/courses" method="get">
+<div class="js-courseSearch-inputGroup oc-form__widget  inputGroup topSearchBox__inner u--block">
+<i class="topSearchBox__icon icon-magnifying-glass  js-courseSearch-icon"></i>
+<input id="algolia-search-input" role="searchbox" type="search" class="js-courseSearch-input oc-form__control inputGroup__input topSearchBox__input" title="Rechercher" autocomplete="off" data-option_source="/components/courses/search?q=&lt;%= term %&gt;" placeholder="Rechercher" aria-label="Rechercher" name="q">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="mainHeader__container mainHeader__container--avatar">
+<div class="popOut  popOut--rightAlign  popOut--noArrow js-popOut-header  " data-tabs-content="#tab-userMenu">
+<a class="js-popOut-button  popOut__button" href="https://openclassrooms.com/fr/dashboard" title="Notifications">
+<span class="roundImageNotification">
+<span class="popOut__notification js-notifications-main"></span>
+<span class="roundImageNotification__image  icoTabs__image  mainHeader__avatar" style="background-image:url(&#39;https://openclassrooms.com/bundles/common/images/avatar_defaut.png&#39;)">
+Öû Hãmzzá
+</span>
+</span>
+</a>
+<div class="popOut__content">
+<div class="popOut__inner">
+<div id="tab-userMenu">
+<ul class="popOutList avatarPopout" xmlns="http://www.w3.org/1999/html">
+<li class="popOutList__item  avatarPopout__itemPremium">
+<a class="popOutList__link" href="https://openclassrooms.com/fr/membres/ouhamzza">
+<i class="popOutList__itemIcon  icon-profil  "></i>
+<strong class="popOutList__linkMain">Öû Hãmzzá</strong>
+<small class="popOutList__linkSub  avatarPopout__itemPremiumSub  ">
+</small>
+</a>
+</li>
+<li class="popOutList__item">
+<a class="popOutList__link" href="https://openclassrooms.com/fr/dashboard">Tableau de bord</a>
+</li>
+<li class="popOutList__item">
+<a class="popOutList__link" href="https://openclassrooms.com/fr/membres/ouhamzza/parametres">Mes paramètres</a>
+</li>
+<li class="popOutList__item">
+<a class="popOutList__link" href="https://openclassrooms.com/fr/my-courses">Créer un cours</a>
+</li>
+<li class="popOutList__item js-notifications-menuPm"></li>
+<li class="popOutList__item">
+<a href="https://openclassrooms.com/fr/mp/" class="popOutList__link  ">
+<i class="popOutList__itemIcon  icon-letter  "></i>
+Aucun message</a>
+<script>
+    App.notifications.oldPrivateMessages = 0;
+</script>
+</li>
+<li class="popOutList__item">
+<a href="https://openclassrooms.com/fr/notifications" class="popOutList__link  ">
+<i class="popOutList__itemIcon  icon-alarm  "></i>
+Aucune notification</a>
+<script>
+    App.notifications.forumNotifications = 0;
+</script>
+</li>
+<li class="popOutList__item">
+<a class="popOutList__link" href="https://openclassrooms.com/logout?_csrf_token=AWBxg0Sw66CGEObRVOV-671_b-pTP-O0SUKE2MsNtJ4">
+ <i class="popOutList__itemIcon  icon-off"></i> <span>Déconnexion</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav role="navigation" class="icoTabs  mainHeader__tabSet">
+<div class="mainHeader__mobileNav">
+<a class="js-tabs-tab  icoTabs__tab mainHeader__tabLogin" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#tab-userMenu">
+<span class="js-popOut-header  popOut  popOut--noArrow">
+<span class="js-popOut-button  popOut__button">
+<span class="roundImageNotification">
+<span class="popOut__notification js-notifications-main"></span>
+<span class="roundImageNotification__image  icoTabs__image  mainHeader__avatar" style="background-image:url(&#39;https://openclassrooms.com/bundles/common/images/avatar_defaut.png&#39;)">
+Öû Hãmzzá
+</span>
+</span>
+</span>
+</span>
+</a>
+<a class="js-courseSearch-mobileIcon js-tabs-tab  icoTabs__tab  mainHeader__tabSearch" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#tab-search">
+<span class="accessibility-hidden">Rechercher</span>
+<i class="icon-magnifying-glass  icoTabs__icon  mainHeader__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  mainHeader__tabCourseMenu  is-disabled" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#tab-courseMenu">
+<span class="accessibility-hidden">Cours</span>
+<i class="icon-plus  icoTabs__icon  mainHeader__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  is-disabled" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#tab-courseEditMenu">
+<span class="accessibility-hidden">Créer un cours</span>
+<i class="icon-plus  icoTabs__icon  mainHeader__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab  is-disabled" data-tabs-default="true" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#tab-searchMenu">
+<span class="accessibility-hidden">Rechercher</span>
+<i class="icon-magnifying-glass  icoTabs__icon  mainHeader__icon"></i>
+</a>
+<a class="js-tabs-tab  icoTabs__tab mainHeader__tabBurgerMenu" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#tab-main">
+<span class="accessibility-hidden">Menu principal</span>
+<i class="icon-menu-burger  icoTabs__icon  mainHeader__icon"></i>
+</a>
+</div>
+</nav>
+</div>
+<div class="js-tabs-content  mainHeader__content mainHeader__tabSetSubmenu"></div>
+</div>
+</div>
+</div>
+</header>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div id="mainSearch" class="mainSearch"></div>
+</div>
+</div>
+<div id="mainContentWithHeader">
+<div id="pre-main-part">
+<section class="inset no-padding">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<nav class="breadcrumb" role="navigation" aria-label="Fil d&#39;Ariane">
+<ul class="breadcrumb__trail">
+<li class="breadcrumb__item breadcrumb__item--home " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/fr/" itemprop="url">
+<span itemprop="title">Accueil</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/fr/courses" itemprop="url">
+ <span itemprop="title">Cours</span>
+</a>
+</li>
+<li class="breadcrumb__item  " itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel?status=published" itemprop="url">
+<span itemprop="title">Découvrez le framework PHP Laravel</span>
+</a>
+</li>
+<li class="breadcrumb__item  breadcrumb__item--current" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+Migrations et modèles
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<main class="claire clearfix" role="main" id="mainContent">
+<article itemscope="" itemtype="http://schema.org/Article" lang="fr">
+<header id="course-header" class="course-header" xmlns="http://www.w3.org/1999/html">
+<div class="grid-wrapper"><div class="grid-inner"><div class="course-header__topPart"><div class="course-header__info"><a itemprop="url" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel"><h1 data-course-title="Découvrez le framework PHP Laravel">Découvrez le framework PHP Laravel</h1></a><span class="course-header__updatedTime visible-l">Mis à jour le 27/04/2018</span></div></div></div></div><div class="course-header__details-container"><div class="grid-wrapper"><div class="grid-inner"><div class="course-header__details  iconBar"><div class="course-header__detailsGroup  course-header__detailsGroup--formats iconBar__group"><ul data-option_popinselector="#popin-formats-availables" class="course-types iconBar__list js-course-formats-bar"><li class="iconBar__item  course-types__item  js-tooltip" title="Ce cours est visible gratuitement en ligne."><a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel" title="Ce cours est visible gratuitement en ligne."><i class="icon-desktop  course-types__icon"></i><span class="course-header__format-current"></span></a></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="Ce cours n&#39;est pas encore en vidéo."><span><i class="icon-video course-types__icon"></i></span></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="Ce cours n&#39;existe pas encore en livre ou ebook."><span><i class="icon-book  course-types__icon"></i></span></li><li class="iconBar__item  course-types__item  js-tooltip" title="Vous pouvez obtenir un certificat de réussite à l&#39;issue de ce cours."><a href="https://openclassrooms.com/fr/courses/3613341/certificate_example" target="_blank" title="Vous pouvez obtenir un certificat de réussite à l&#39;issue de ce cours."><i class="icon-badge  course-types__icon"></i></a></li><li class="iconBar__item  course-types__item iconBar__item--dimmed js-tooltip" title="Ce cours n&#39;est pas encore diplômant et ne vous permet pas d&#39;obtenir des crédits universitaires européens (ECTS)."><span><i class="icon-hat  course-types__icon"></i></span></li></ul></div><div class="course-header__detailsGroup  course-header__detailsGroup--info  iconBar__group"><ul class="iconBar__list"><li class="iconBar__item"><i class="icon-duration iconBar__icon js-tooltip" title="Ce cours demande en moyenne 15 heures de travail pour être réussi."></i><span class="iconBar__label">15 heures</span></li><li class="iconBar__item"><i class="icon-level iconBar__icon"></i><span class="iconBar__label">
+Moyenne
+</span></li></ul></div><div class="course-header__detailsGroup course-header__detailsGroup--licences iconBar__group"><a target="_blank" href="https://creativecommons.org/licenses/by-sa/2.0"><span class="iconBar__label">Licence</span><ul class="iconBar__list"><li class="iconBar__item"><i class="icon-cc iconBar__icon" title="CC"></i></li><li class="iconBar__item"><i class="icon-ccby iconBar__icon" title="BY"></i></li><li class="iconBar__item"><i class="icon-ccsa iconBar__icon" title="SA"></i></li></ul></a></div></div></div></div></div>
+<div id="popin-formats-availables" class="popin popin--course-formats-availables">
+<i class="popin__close-button icon-close js-close-button"></i>
+<div class="course-types course-types--withSpace">
+<a class="course-types__item" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel">
+<i class="icon-desktop course-types__icon"></i>
+</a>
+<a class="course-types__item" href="https://openclassrooms.com/fr/courses/3613341/certificate_example" target="_blank">
+<i class="icon-badge course-types__icon js-close-button"></i>
+</a>
+</div>
+<p>Ce cours est visible <a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel">gratuitement en ligne</a>.</p>
+<p>
+Vous pouvez obtenir un certificat de réussite à l'issue de ce cours.
+</p>
+<a class="button button--primary js-close-button" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#">J'ai tout compris !</a>
+</div>
+</header>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="grid-inner-content">
+<nav id="course-timeline" class="timeline">
+<div class="timeline__inner">
+<span class="timeline__iconContainer">
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel" title="Retour sur le sommaire du cours" class="roundIcon timeline__roundIcon">
+<i class="icon-home roundIcon__icon"></i>
+</a>
+</span>
+<div class="timeline__steps">
+<span class="timeline__splitChapter"></span>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3616233-presentation-generale" class="timeline__step" title="Présentation générale">
+<span class="timeline__stepName">
+Présentation générale
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3616434-installation-et-organisation" class="timeline__step" title="Installation et organisation">
+<span class="timeline__stepName">
+Installation et organisation
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3616576-le-routage-et-les-facades" class="timeline__step" title="Le routage et les façades">
+<span class="timeline__stepName">
+Le routage et les façades
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3616696-les-reponses" class="timeline__step" title="Les réponses">
+<span class="timeline__stepName">
+Les réponses
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3616775-les-controleurs" class="timeline__step" title="Les contrôleurs">
+<span class="timeline__stepName">
+Les contrôleurs
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3616909-les-entrees" class="timeline__step" title="Les entrées">
+<span class="timeline__stepName">
+Les entrées
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617070-la-validation" class="timeline__step" title="La validation">
+<span class="timeline__stepName">
+La validation
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617196-configuration-et-session" class="timeline__step" title="Configuration et session">
+<span class="timeline__stepName">
+Configuration et session
+</span>
+ </a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617269-linjection-de-dependance" class="timeline__step" title="L&#39;injection de dépendance">
+<span class="timeline__stepName">
+L'injection de dépendance
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/705" class="timeline__step" title="Quiz : Quiz 1">
+<span class="timeline__stepName">
+Quiz : Quiz 1
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/714" class="timeline__step" title="Activité : Créer un site de sondages">
+<span class="timeline__stepName">
+Activité : Créer un site de sondages
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles" class="timeline__step js-current-timeline-step" title="Migrations et modèles">
+<span class="timeline__stepName">
+Migrations et modèles
+</span>
+<span class="timeline__progressMarker"></span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617597-les-ressources-1-2" class="timeline__step" title="Les ressources (1/2)">
+<span class="timeline__stepName">
+Les ressources (1/2)
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617795-les-ressources-2-2-et-les-erreurs" class="timeline__step" title="Les ressources (2/2) et les erreurs">
+<span class="timeline__stepName">
+Les ressources (2/2) et les erreurs
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618047-lauthentification" class="timeline__step" title="L&#39;authentification">
+<span class="timeline__stepName">
+L'authentification
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618320-la-relation-1-n" class="timeline__step" title="La relation 1:n">
+<span class="timeline__stepName">
+La relation 1:n
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618550-la-relation-n-n" class="timeline__step" title="La relation n:n">
+<span class="timeline__stepName">
+La relation n:n
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618722-les-commandes-et-les-assistants" class="timeline__step" title="Les commandes et les assistants">
+<span class="timeline__stepName">
+Les commandes et les assistants
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618880-query-builder" class="timeline__step" title="Query Builder">
+<span class="timeline__stepName">
+Query Builder
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/706" class="timeline__step" title="Quiz : Quiz 2">
+<span class="timeline__stepName">
+Quiz : Quiz 2
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/715" class="timeline__step" title="Activité : Construisez un site de sondages avec une base de données">
+<span class="timeline__stepName">
+Activité : Construisez un site de sondages avec une base de données
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618988-deploiement" class="timeline__step" title="Déploiement">
+<span class="timeline__stepName">
+Déploiement
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3619068-des-vues-propres-1-2" class="timeline__step" title="Des vues propres (1/2)">
+<span class="timeline__stepName">
+Des vues propres (1/2)
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3619158-des-vues-propres-2-2" class="timeline__step" title="Des vues propres (2/2)">
+<span class="timeline__stepName">
+Des vues propres (2/2)
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3619324-la-localisation" class="timeline__step" title="La localisation">
+<span class="timeline__stepName">
+La localisation
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3619425-ajax" class="timeline__step" title="Ajax">
+<span class="timeline__stepName">
+Ajax
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3619611-les-tests-unitaires" class="timeline__step" title="Les tests unitaires">
+<span class="timeline__stepName">
+Les tests unitaires
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3619760-evenements-et-autorisations" class="timeline__step" title="Événements et autorisations">
+<span class="timeline__stepName">
+Événements et autorisations
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/707" class="timeline__step" title="Quiz : Quiz 3">
+<span class="timeline__stepName">
+Quiz : Quiz 3
+</span>
+</a>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/716" class="timeline__step" title="Activité : Perfectionnez votre site de sondages">
+<span class="timeline__stepName">
+Activité : Perfectionnez votre site de sondages
+</span>
+</a>
+<span class="timeline__splitChapter"></span>
+</div>
+<span class="timeline__iconContainer">
+<a href="https://openclassrooms.com/fr/courses/3613341/certificate_example" title="Certificat de réussite (voir un exemple)" class="roundIcon timeline__roundIcon">
+<i class="icon-trophy roundIcon__icon"></i>
+</a>
+</span>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="contentWithSidebar  spacer  js-contentWithSidebar  grid-inner-content">
+<div class="contentWithSidebar__content">
+<div class="relative js-sidebar-container">
+<div class="static">
+<h2 itemprop="name" data-part-title="Migrations et modèles" class="part-title">Migrations et modèles</h2>
+<section class="space-bottom js-desktop-sticky-container">
+<div itemprop="articleBody" data-page-indentifier="/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles" class="js-isRestrictablePage js-course-container js-smilize js-userCanWatchVideo">
+<div class="userContent js-userContent">
+<p id="r-3617273" data-claire-element-id="5749413">À partir de ce chapitre, il serait souhaitable que vous installiez une barre de débogage. La plus utile est celle proposée par&nbsp;<a href="https://github.com/barryvdh/laravel-debugbar">barryvdh</a>. Suivez les indications fournies pour l'installation, ça vous fera un bon exercice&nbsp;:).</p><p id="r-3617274" data-claire-element-id="5749414">Dans ce chapitre nous allons commencer à aborder les bases de données. C'est un vaste sujet auquel Laravel apporte des réponses &nbsp;efficaces. Nous allons commencer par voir les migrations et les modèles.</p><p id="r-3617275" data-claire-element-id="5749415">Pour ce chapitre je vais encore prendre un exemple simple en imaginant un formulaire destiné à l'inscription à une lettre d'information. On va se contenter d'envoyer un email et de mémoriser cet email dans une table d'une base de données.</p><h3 id="r-3617342" data-claire-element-id="6700430">Les migrations</h3><p id="r-3617276" data-claire-element-id="6614311">Une migration permet de créer et de mettre à jour un&nbsp;schéma de base de données. Autrement dit, vous pouvez créer des tables, des colonnes dans ces tables, en supprimer, créer des index... Tout ce qui concerne la maintenance de vos tables peut être pris en charge par cet outil.</p><h4 id="r-3617283" data-claire-element-id="6614313">La configuration de la base</h4><p id="r-3617277" data-claire-element-id="5749417">Vous devez dans un premier temps avoir une base de données. Laravel permet de gérer les bases de type &nbsp;MySQL, Postgres, SQLite et SQL Server. Je ferai tous les exemples avec MySQL mais tout le code sera aussi valable pour les autres types de bases.</p><p id="r-3617278" data-claire-element-id="6614312">Il faut indiquer où se trouve votre base, son nom, le nom de l'utilisateur, le mot de passe dans le fichier de configuration<code data-claire-semantic="text">.env</code>&nbsp;:</p><pre id="r-3617279" data-claire-element-id="5815571"><code data-claire-semantic="text">DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret</code></pre><p id="r-3617280" data-claire-element-id="5749420">Ici nous avons les valeurs par défaut à l'installation de Laravel.</p><p id="r-3617281" data-claire-element-id="5749421">Voici par exemple mes réglages &nbsp;pour ma base de test MySQL nommée "tuto" avec MySQL en local non sécurisé :</p><pre id="r-3617282" data-claire-element-id="5815572"><code data-claire-semantic="html">DB_DATABASE=tuto
+DB_USERNAME=root
+DB_PASSWORD=</code></pre><h4 id="r-3617288" data-claire-element-id="6236553">Artisan</h4><p id="r-3617284" data-claire-element-id="5749424">Laravel a un outil en ligne de commande : <strong>artisan</strong>. Nous avons déjà utilisé cet outil qui permet de faire beaucoup de choses, vous avez un aperçu des commande en entrant :</p><pre id="r-3617285" data-claire-element-id="5749425">php artisan</pre><p id="r-3617286" data-claire-element-id="5749426">Vous avez une longue liste. Pour ce chapitre nous allons nous intéresser uniquement à celles qui concernent les migrations :</p><pre id="r-3617287" data-claire-element-id="6236552">make
+ ...
+ make:migration     Create a new migration file
+ ...
+migrate
+ migrate:install    Create the migration repository
+ migrate:refresh    Reset and re-run all migrations
+ migrate:reset      Rollback all database migrations
+ migrate:rollback   Rollback the last database migration
+ migrate:status     Show a the status of each migration</pre><h4 id="r-3617296" data-claire-element-id="6700423">Installer la migration</h4><p id="r-3617289" data-claire-element-id="5749429">On va commencer par installer la migration :</p><pre id="r-3617290" data-claire-element-id="5749430">php artisan migrate:install
+Migration table created successfully.</pre><p id="r-3617291" data-claire-element-id="5749431">Si vous regardez l'effet dans votre base vous allez voir qu'une table a été créée :</p><figure id="r-3617294" data-claire-element-id="6700422"><img id="r-3617292" data-claire-element-id="5749432" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img51.JPG" alt="La table des migrations"><figcaption>La table des migrations</figcaption></figure><p id="r-3617295" data-claire-element-id="5749435">C'est dans cette table que seront mémorisées toutes vos actions au niveau du schéma de la base.</p><h4 id="r-3617331" data-claire-element-id="6700426">Créer la migration</h4><p id="r-3617297" data-claire-element-id="5749437">La deuxième étape consiste à créer la migration pour notre table :</p><pre id="r-3617298" data-claire-element-id="5749438">php artisan make:migration create_emails_table
+Created Migration: 2015_01_15_121123_create_emails_table
+</pre><p id="r-3617299" data-claire-element-id="6614317">Si vous regardez maintenant dans le dossier<code data-claire-semantic="abap">database/migrations</code>&nbsp;vous trouvez un&nbsp;fichier du genre&nbsp;<code data-claire-semantic="abap">2015_12_27_210631_create_emails_table.php</code>&nbsp;(la partie numérique qui inclut la date sera évidemment différente pour vous) :</p><figure id="r-3617302" data-claire-element-id="6700425"><img id="r-3617300" data-claire-element-id="5749440" src="https://s3-eu-west-1.amazonaws.com/sdz-upload/prod/upload/img01110.JPG" alt=""><figcaption>La migration créée</figcaption></figure><div id="r-3617311" data-claire-element-id="5749451" data-claire-semantic="question"><p id="r-3617303" data-claire-element-id="5749443">Mais il y a déjà des migrations présentes, à quoi servent-elles ?</p><p id="r-3617304" data-claire-element-id="5749444">Il y a déjà effectivement 2 migrations présentes :</p><ul id="r-3617309" data-claire-element-id="5749449"><li id="r-3617306" data-claire-element-id="5749446"><p id="r-3617305" data-claire-element-id="5749445">table <strong>users</strong> : c'est une migration de base pour créer une table des utilisateurs,</p></li><li id="r-3617308" data-claire-element-id="5749448"><p id="r-3617307" data-claire-element-id="5749447">table <strong>password_resets</strong> : c'est une migration liée à la précédente qui permet de gérer le renouvellement des mots de passe en toute sécurité.</p></li></ul><p id="r-3617310" data-claire-element-id="5749450">Nous nous intéresserons à ces migrations lorsque nous verrons l'authentification dans un chapitre ultérieur. Comme nous n'allons pas avoir besoin immédiatement de ces migrations le mieux est de les supprimer pour le moment pour éviter de créer des tables inutiles.</p></div><p id="r-3617312" data-claire-element-id="5749452">Voici le contenu de la migration que nous venons de créer :</p><pre id="r-3617313" data-claire-element-id="5749453"><code data-claire-semantic="php">&lt;?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateEmailsTable extends Migration {
+
+    /**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		//
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		//
+	}
+
+}</code></pre><p id="r-3617314" data-claire-element-id="5749454">On dispose dans cette classe de deux fonctions :&nbsp;</p><ul id="r-3617319" data-claire-element-id="5749459"><li id="r-3617316" data-claire-element-id="5749456"><p id="r-3617315" data-claire-element-id="5749455"><strong>up</strong> : ici on mettra le code de création</p></li><li id="r-3617318" data-claire-element-id="5749458"><p id="r-3617317" data-claire-element-id="5749457"><strong>down</strong> : ici on mettra le code de suppression</p></li></ul><p id="r-3617320" data-claire-element-id="5749460">On veut créer une table "emails" avec un id auto-incrémenté et un champ "email" de type texte, et de longueur 100. Voilà le code correspondant :</p><pre id="r-3617321" data-claire-element-id="5749461"><code data-claire-semantic="php">&lt;?php
+public function up()
+{
+    Schema::create('emails', function(Blueprint $table) {
+		$table-&gt;increments('id');
+		$table-&gt;string('email', 100);
+	});
+}</code></pre><p id="r-3617322" data-claire-element-id="5749462">On demande au constructeur de schéma (<code data-claire-semantic="text">Schema</code>) de créer (<code data-claire-semantic="text">create</code>) la table "emails". Dans la fonction anonyme on définit ce qu'on veut pour la table :</p><ul id="r-3617327" data-claire-element-id="5749467"><li id="r-3617324" data-claire-element-id="5749464"><p id="r-3617323" data-claire-element-id="5749463">une colonne "id" auto-incrémentée qui sera ainsi la clé primaire de la table,</p></li><li id="r-3617326" data-claire-element-id="5749466"><p id="r-3617325" data-claire-element-id="5749465">une colonne "email" de type string et de longueur 100.</p></li></ul><p id="r-3617328" data-claire-element-id="6614320">Pour la méthode<code data-claire-semantic="text">down</code>&nbsp;on va juste supprimer la table avec un<code data-claire-semantic="text">drop</code>&nbsp;:</p><pre id="r-3617329" data-claire-element-id="5749469"><code data-claire-semantic="php">&lt;?php
+public function down()
+{
+    Schema::drop('emails');
+}</code></pre><p id="r-3617330" data-claire-element-id="5749470">Notre migration est maintenant créée.</p><h4 id="r-3617341" data-claire-element-id="6700429">Utiliser la migration</h4><p id="r-3617332" data-claire-element-id="6614322">On va maintenant lancer la migration (utilisation de la méthode<code data-claire-semantic="abap">up</code>&nbsp;de la migration) :</p><pre id="r-3617333" data-claire-element-id="5749473">php artisan migrate
+Migrated: 2015_12_27_210631_create_emails_table</pre><p id="r-3617334" data-claire-element-id="5749474">Si on regarde maintenant dans la base on trouve la table "emails" avec ces deux colonnes :</p><figure id="r-3617337" data-claire-element-id="6700428"><img id="r-3617335" data-claire-element-id="5749475" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img52.JPG" alt="La table"><figcaption>La table "emails"</figcaption></figure><p id="r-3617338" data-claire-element-id="6614325">Si vous avez fait une erreur vous pouvez revenir en arrière avec un<code data-claire-semantic="text">rollback</code>&nbsp;qui annule&nbsp;la dernière migration effectuée (utilisation de la méthode<code data-claire-semantic="abap">down</code>&nbsp;de la migration) :</p><pre id="r-3617339" data-claire-element-id="5749479">php artisan migrate:rollback
+Rolled back: 2015_12_27_210631_create_emails_table</pre><p id="r-3617340" data-claire-element-id="6614326">La table a maintenant été supprimée de la base. Comme on va avoir besoin de cette table on relance la migration. On peut aussi effectuer un rafraîchissement de toutes les migrations avec la commande<code data-claire-semantic="abap">refresh</code>&nbsp;(rollback de toutes les migrations et nouveau lancement de toutes les migrations).</p><h3 id="r-3617431" data-claire-element-id="6700455">Eloquent</h3><p id="r-3617343" data-claire-element-id="6614329">Laravel propose un ORM (acronyme de object-relational mapping ou en bon Français un mappage objet-relationnel) très performant. De quoi s'agit-il ? Tout simplement que tous les éléments de la base de données ont une représentation sous forme d'objets manipulables. Quel intérêt ? Tout simplement de simplifier grandement les opérations sur la base comme nous allons le voir dans toute cette partie du cours.</p><p id="r-3617344" data-claire-element-id="6614391">Avec Eloquent une table est représentée par une classe qui étend la classe Model. Pour notre table &nbsp;<code data-claire-semantic="abap">emails</code>&nbsp;on va à nouveau utiliser Artisan pour la création du modèle :</p><pre id="r-3617345" data-claire-element-id="5749485"><code data-claire-semantic="text">php artisan make:model Email</code></pre><p id="r-3617346" data-claire-element-id="5749486">On trouve le fichier ici :</p><figure id="r-3617349" data-claire-element-id="6700432"><img id="r-3617347" data-claire-element-id="5749487" src="https://s3-eu-west-1.amazonaws.com/sdz-upload/prod/upload/img0124.JPG" alt=""><figcaption>Le nouveau modèle pour les emails</figcaption></figure><p id="r-3617350" data-claire-element-id="5749490">Avec cette trame de base :</p><pre id="r-3617351" data-claire-element-id="5749491"><code data-claire-semantic="php">&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Email extends Model
+{
+    //
+}</code></pre><p id="r-3617352" data-claire-element-id="5749492">On va compléter ainsi le code :</p><pre id="r-3617353" data-claire-element-id="5749493"><code data-claire-semantic="php">&lt;?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Email extends Model 
+{
+    
+    protected $table = 'emails';
+    
+    public $timestamps = false;
+
+}</code></pre><p id="r-3617354" data-claire-element-id="6614333">Vous voyez c'est tout simple ! On renseigne le nom de la table associée au modèle. D'autre part par défaut Eloquent tient à jour des colonnes <strong>created_at</strong> et <strong>updated_at</strong> dans la table. Comme nous ne les avons pas prévues, pour désactiver cette action on est obligé de mettre à<code data-claire-semantic="text">false</code>&nbsp;la propriété<code data-claire-semantic="abap">timestamps</code>. On va mettre ce modèle directement dans le dossier<code data-claire-semantic="abap">app</code>, &nbsp;il est évident que pour une application réelle on organisera les dossiers pour bien ranger tous nos fichiers mais pour le moment on va faire simple.</p><aside id="r-3617356" data-claire-element-id="6614335" data-claire-semantic="information"><p id="r-3617355" data-claire-element-id="6614334">Si on ne renseigne pas la propriété<code data-claire-semantic="text">$table</code>&nbsp;Laravel va déduire le nom de la table à partir du nom du modèle. Autrement dit dans notre cas on pourrait éviter cette ligne de code.</p></aside><p id="r-3617357" data-claire-element-id="5749497">Nous allons voir maintenant comment utiliser cette classe en construisant notre petite application.</p><h4 id="r-3617375" data-claire-element-id="6700435">La validation</h4><p id="r-3617358" data-claire-element-id="5749498">Pour la validation on va encore créer une requête de formulaire :</p><pre id="r-3617359" data-claire-element-id="5749499"><code data-claire-semantic="text">php artisan make:request EmailRequest
+Request created successfully.</code></pre><p id="r-3617360" data-claire-element-id="5749500">On trouve la requête dans son dossier :</p><figure id="r-3617363" data-claire-element-id="6700434"><img id="r-3617361" data-claire-element-id="5749501" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img146.JPG" alt=""><figcaption>La requête de formulaire</figcaption></figure><p id="r-3617364" data-claire-element-id="5749504">La voici avec le code complété :</p><pre id="r-3617365" data-claire-element-id="5749505"><code data-claire-semantic="php">&lt;?php
+
+namespace App\Http\Requests;
+
+use App\Http\Requests\Request;
+
+class EmailRequest extends Request
+{
+
+    /**
+	 * Determine if the user is authorized to make this request.
+	 *
+	 * @return bool
+	 */
+	public function authorize()
+	{
+		return true;
+	}
+
+	/**
+	 * Get the validation rules that apply to the request.
+	 *
+	 * @return array
+	 */
+	public function rules()
+	{
+		return ['email' =&gt; 'required|email|unique:emails'];
+	}
+
+}</code></pre><p id="r-3617366" data-claire-element-id="5749506">On a 3 règles :</p><ul id="r-3617373" data-claire-element-id="6614340"><li id="r-3617368" data-claire-element-id="5749508"><p id="r-3617367" data-claire-element-id="5749507"><strong>required</strong> : le champ est requis,</p></li><li id="r-3617370" data-claire-element-id="5749510"><p id="r-3617369" data-claire-element-id="5749509"><strong>email</strong> : on doit avoir une adresse email valide,</p></li><li id="r-3617372" data-claire-element-id="6614339"><p id="r-3617371" data-claire-element-id="6614338"><strong>unique</strong> : l'email ne doit pas déjà exister (<code data-claire-semantic="text">unique</code>) dans la table<code data-claire-semantic="abap">emails</code>&nbsp;(on sous-entend qu'il s'agit de la colonne<code data-claire-semantic="abap">email</code>).</p></li></ul><p id="r-3617374" data-claire-element-id="5749514">Remarquez la puissance de la troisième règle : Eloquent va vérifier que notre email n'existe pas déjà dans la table !&nbsp;</p><h4 id="r-3617381" data-claire-element-id="5815590">Les routes</h4><p id="r-3617376" data-claire-element-id="5749516">On va avoir deux routes :</p><pre id="r-3617377" data-claire-element-id="5815589"><code data-claire-semantic="php">&lt;?php
+Route::get('email', 'EmailController@getForm');
+Route::post('email', ['uses' =&gt; 'EmailController@postForm', 'as' =&gt; 'storeEmail']);</code></pre><p id="r-3617378" data-claire-element-id="5749518">Remarquez que la seconde route est nommée (<strong>storeEmail</strong>).</p><p id="r-3617379" data-claire-element-id="5749519">L'url de base sera donc :</p><pre id="r-3617380" data-claire-element-id="5749520"><code data-claire-semantic="html">http://monsite.fr/email</code></pre><h4 id="r-3617391" data-claire-element-id="6700438">Le contrôleur</h4><p id="r-3617382" data-claire-element-id="6614342">On va créer un contrôleur<code data-claire-semantic="abap">EmailController</code>&nbsp;:</p><figure id="r-3617385" data-claire-element-id="6700437"><img id="r-3617383" data-claire-element-id="5749523" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img994.JPG" alt=""><figcaption>Le contrôleur EmailController</figcaption></figure><p id="r-3617386" data-claire-element-id="5749526">Le code du contrôleur reprend l'essentiel de ce que nous avons vu dans les chapitres précédents en utilisant à nouveau la validation injectée :</p><pre id="r-3617387" data-claire-element-id="5749527"><code data-claire-semantic="php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Email;
+use App\Http\Requests\EmailRequest;
+
+class EmailController extends Controller
+{
+
+    public function getForm()
+	{
+		return view('email');
+	}
+
+	public function postForm(EmailRequest $request)
+	{
+		$email = new Email;
+		$email-&gt;email = $request-&gt;input('email');
+		$email-&gt;save();
+		
+		return view('email_ok');
+	}
+
+}</code></pre><p id="r-3617388" data-claire-element-id="5749528">La nouveauté réside uniquement dans l'utilisation du modèle :</p><pre id="r-3617389" data-claire-element-id="5749529"><code data-claire-semantic="php">&lt;?php
+$email = new Email;
+$email-&gt;email = $request-&gt;input('email');
+$email-&gt;save();</code></pre><p id="r-3617390" data-claire-element-id="6614345">Ici on crée une nouvelle instance de<code data-claire-semantic="abap">Email</code>. On affecte l'attribut&nbsp;<code data-claire-semantic="abap">email</code>&nbsp;avec la valeur de l'entrée. Enfin on demande au modèle d'enregistrer cette ligne effectivement dans la table (<code data-claire-semantic="text">save</code>).</p><h4 id="r-3617406" data-claire-element-id="6700443">Les vues</h4><p id="r-3617392" data-claire-element-id="6614347">On va utiliser le même tempate que dans les précédents chapitres. Voici la vue pour le formulaire<code data-claire-semantic="abap">(resources/views/email.blade.php</code>) :</p><pre id="r-3617393" data-claire-element-id="6236770"><code data-claire-semantic="html">@extends('template')
+
+@section('contenu')
+    &lt;br&gt;
+    &lt;div class="col-sm-offset-4 col-sm-4"&gt;
+		&lt;div class="panel panel-info"&gt;
+			&lt;div class="panel-heading"&gt;Inscription à la lettre d'information&lt;/div&gt;
+			&lt;div class="panel-body"&gt; 
+				{!! Form::open(['route' =&gt; 'storeEmail']) !!}
+					&lt;div class="form-group {!! $errors-&gt;has('email') ? 'has-error' : '' !!}"&gt;
+						{!! Form::email('email', null, array('class' =&gt; 'form-control', 'placeholder' =&gt; 'Entrez votre email')) !!}
+						{!! $errors-&gt;first('email', '&lt;small class="help-block"&gt;:message&lt;/small&gt;') !!}
+					&lt;/div&gt;
+					{!! Form::submit('Envoyer !', ['class' =&gt; 'btn btn-info pull-right']) !!}
+				{!! Form::close() !!}
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+@endsection</code></pre><p id="r-3617394" data-claire-element-id="5749534">Cette vue ne présente aucune nouveauté pour vous si ce n'est l'utilisation du nom de la route, elle répond à l'url (avec le verbe get) :</p><pre id="r-3617395" data-claire-element-id="5749535">http://monsite.fr/email</pre><p id="r-3617396" data-claire-element-id="5749536">L'aspect est le suivant :</p><figure id="r-3617399" data-claire-element-id="6700440"><img id="r-3617397" data-claire-element-id="5749537" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img54.JPG" alt="Le formulaire"><figcaption>Le formulaire</figcaption></figure><p id="r-3617400" data-claire-element-id="5749540">Voici maintenant la vue de confirmation (resources/views/email_ok.blade.php) :</p><pre id="r-3617401" data-claire-element-id="6236773"><code data-claire-semantic="html">@extends('template')
+
+@section('contenu')
+    &lt;br&gt;
+	&lt;div class="col-sm-offset-3 col-sm-6"&gt;
+		&lt;div class="panel panel-info"&gt;
+			&lt;div class="panel-heading"&gt;Inscription à la lettre d'information&lt;/div&gt;
+			&lt;div class="panel-body"&gt; 
+				Merci. Votre adresse a bien été prise en compte.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+@endsection</code></pre><p id="r-3617402" data-claire-element-id="5749542">Avec cet aspect :</p><figure id="r-3617405" data-claire-element-id="6700442"><img id="r-3617403" data-claire-element-id="5749543" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img55.JPG" alt="La confirmation"><figcaption>La confirmation</figcaption></figure><h4 id="r-3617430" data-claire-element-id="6700454">Le fonctionnement</h4><p id="r-3617407" data-claire-element-id="5749547">Voyons maintenant si tout se passe bien. Je soumets une adresse :</p><figure id="r-3617410" data-claire-element-id="6700445"><img id="r-3617408" data-claire-element-id="5749548" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img56.JPG" alt="Soumission d&#39;une adresse"><figcaption>Soumission d'une adresse</figcaption></figure><p id="r-3617411" data-claire-element-id="5749551">Je reçois la confirmation :</p><figure id="r-3617414" data-claire-element-id="6700447"><img id="r-3617412" data-claire-element-id="5749552" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img551.JPG" alt="La confirmation"><figcaption>La confirmation</figcaption></figure><p id="r-3617415" data-claire-element-id="5749555">Je regarde dans la base :</p><figure id="r-3617418" data-claire-element-id="6700449"><img id="r-3617416" data-claire-element-id="5749556" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img571.JPG" alt=""><figcaption>L'adresse dans la base</figcaption></figure><p id="r-3617419" data-claire-element-id="6614359">Je soumets la même adresse :</p><figure id="r-3617422" data-claire-element-id="6700451"><img id="r-3617420" data-claire-element-id="5749560" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img018.JPG" alt=""><figcaption>Soumission d'une adresse existante</figcaption></figure><p id="r-3617423" data-claire-element-id="5749563">Voyons un peu les requêtes générées par Eloquent avec par exemple la soumission de l'adresse&nbsp;toto@gui.com (vous les trouvez à la rubrique Queries de la barre de débogage) :&nbsp;</p><pre id="r-3617424" data-claire-element-id="5749564"><code data-claire-semantic="sql">select count(*) as aggregate from `emails` where `email` = 'toto@gui.com'
+insert into `emails` (`email`) values ('toto@gui.com')</code></pre><p id="r-3617425" data-claire-element-id="5749565">La première requête est destinée à tester la présence éventuelle de l'adresse dans la table pour répondre à la règle "unique". La seconde insère l'enregistrement dans la table. Vous voyez qu'Eloquent vous simplifie la tâche, vous n'avez pas besoin d'écrire les requêtes SQL, il le fait pour vous. Vous vous contentez de manipuler un objet.</p><p id="r-3617426" data-claire-element-id="5749566">N'hésitez pas à regarder les informations de la barre de débogage, vous y trouverez de précieux renseignements sur les requêtes (HTTP et SQL), les vues utilisées, les routes, les délais, les exceptions générées... Vous avez aussi un historique en cliquant sur la petite image de dossier :</p><figure id="r-3617429" data-claire-element-id="6700453"><img id="r-3617427" data-claire-element-id="5749567" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img59.JPG" alt="Ouvrir l&#39;historique de la barre"><figcaption>Ouvrir l'historique de la barre</figcaption></figure><h3 id="r-3617459" data-claire-element-id="6700460">Organisation du code</h3><p id="r-3617432" data-claire-element-id="5749572">Maintenant posons-nous à nouveau la question de l'organisation du code. Dans le contrôleur nous avons mis la gestion du modèle :</p><pre id="r-3617433" data-claire-element-id="5749573"><code data-claire-semantic="php">&lt;?php
+$email = new Email;
+$email-&gt;email = $request-&gt;input('email');
+$email-&gt;save();</code></pre><p id="r-3617434" data-claire-element-id="5749574">Autrement dit nous avons lié de façon étroite le contrôleur et le modèle. Supposons que nous faisons des modifications dans notre base de données et que nous plaçons l'email dans une autre table. Nous devrons évidemment intervenir dans le code du contrôleur pour tenir compte de cette modification.</p><p id="r-3617435" data-claire-element-id="5749575">Vous pouvez évidemment considérer que c'est peu probable, que la modification du code n'est pas très importante... Mais ici on a une application très simple, dans une situation réelle l'utilisation des modèles sont nombreux et alors la question devient plus&nbsp;pertinente.</p><h4 id="r-3617439" data-claire-element-id="5749579">Première version</h4><p id="r-3617436" data-claire-element-id="5749576">Dans ce cours je m'efforce de vous entraîner à prendre de bonnes habitudes. Plutôt que d'instancier directement une classe dans une autre il vaut mieux une injection et laisser faire le conteneur. Regardez cette nouvelle version du contrôleur :</p><pre id="r-3617437" data-claire-element-id="5749577"><code data-claire-semantic="php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Email;
+use App\Http\Requests\EmailRequest;
+
+class EmailController extends Controller
+{
+
+    public function getForm()
+	{
+		return view('email');
+	}
+
+	public function postForm(
+		EmailRequest $request,
+		Email $email)
+	{
+		$email-&gt;email = $request-&gt;input('email');
+		$email-&gt;save();
+		
+		return view('email_ok');
+	}
+
+}</code></pre><p id="r-3617438" data-claire-element-id="5749578">Maintenant le modèle est injecté dans la méthode, c'est plus élégant et efficace. Si jamais vous changez de modèle vous n'avez plus qu'un changement de code limité sur le contrôleur. Mais ce n'est pas encore parfait.&nbsp;</p><h4 id="r-3617452" data-claire-element-id="6700459">Seconde version</h4><p id="r-3617440" data-claire-element-id="5749580">Dans l'idéal on veut que notre contrôleur ne soit pas du tout concerné par un changement dans la gestion des modèles. Voici une façon de procéder :</p><pre id="r-3617441" data-claire-element-id="5749581"><code data-claire-semantic="php">&lt;?php
+namespace App\Http\Controllers;
+
+use App\Http\Requests\EmailRequest;
+use App\Repositories\EmailRepository;
+
+class EmailController extends Controller
+{
+
+    public function getForm()
+	{
+		return view('email');
+	}
+
+	public function postForm(
+		EmailRequest $request,
+		EmailRepository $emailRepository)
+	{
+		$emailRepository-&gt;save($request-&gt;input('email'));
+		
+		return view('email_ok');
+	}
+
+}</code></pre><p id="r-3617442" data-claire-element-id="6614366">Maintenant j'injecte une classe de gestion qui possède la méthode<code data-claire-semantic="abap">save</code>. Voici le contrat avec une interface (<code data-claire-semantic="abap">app/Repositories/EmailRepositoryInterface</code>) :</p><pre id="r-3617443" data-claire-element-id="5749583"><code data-claire-semantic="php">&lt;?php
+
+namespace App\Repositories;
+
+interface EmailRepositoryInterface
+{
+
+    public function save($mail);
+}</code></pre><p id="r-3617444" data-claire-element-id="5749584">Et voici la classe qui implémente cette interface (<code data-claire-semantic="abap">app/Repositories/EmailRepository</code>) :</p><pre id="r-3617445" data-claire-element-id="6700406"><code data-claire-semantic="php">&lt;?php
+
+namespace App\Repositories;
+
+use App\Email;
+
+class EmailRepository implements EmailRepositoryInterface
+{
+
+    protected $email;
+
+	public function __construct(Email $email)
+	{
+		$this-&gt;email = $email;
+	}
+
+	public function save($mail)
+	{
+        $this-&gt;email-&gt;email = $mail;
+        $this-&gt;email-&gt;save();
+	}
+
+}</code></pre><p id="r-3617446" data-claire-element-id="6700456">Le modèle est injecté dans cette classe. Je l'ai injecté dans le constructeur pour généraliser la démarche en imaginant qu'on créera d'autres méthodes que l'on peut regrouper ici &nbsp;pour gérer les enregistrements. Le code est maintenant parfaitement organisé, facile à modifier et à tester.‌</p><figure id="r-3617449" data-claire-element-id="6700458"><img id="r-3617447" data-claire-element-id="5749587" src="https://sdz-upload.s3.amazonaws.com/prod/upload/img027.JPG" alt=""><figcaption>La gestion</figcaption></figure><aside id="r-3617451" data-claire-element-id="5749591" data-claire-semantic="information"><p id="r-3617450" data-claire-element-id="5749590">Le Design Pattern <strong>Repository</strong> est un des plus répandus. Il permet de gérer la persistance des informations.</p></aside><h4 id="r-3617458" data-claire-element-id="6700412">Troisième version</h4><p id="r-3617453" data-claire-element-id="6700411">On peut enfin, comme on l'a déjà vu, référencer l'interface plutôt que la classe mais dans ce cas il faut informer le conteneur de la dépendance. Modifiez ainsi le fichier<code data-claire-semantic="abap">app/Http/Providers/AppServiceProvider.php</code>&nbsp;:</p><pre id="r-3617454" data-claire-element-id="5749594"><code data-claire-semantic="php">&lt;?php 
+public function register()
+{
+    ...
+
+	$this-&gt;app-&gt;bind(
+		'App\Repositories\EmailRepositoryInterface', 
+		'App\Repositories\EmailRepository'
+	);
+}</code></pre><p id="r-3617455" data-claire-element-id="5749595">Et finalement le contrôleur :</p><pre id="r-3617456" data-claire-element-id="5749596"><code data-claire-semantic="php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\EmailRequest;
+use App\Repositories\EmailRepositoryInterface;
+
+class EmailController extends Controller
+{
+
+    public function getForm()
+	{
+		return view('email');
+	}
+
+	public function postForm(
+		EmailRequest $request,
+		EmailRepositoryInterface $emailRepository)
+	{
+		$emailRepository-&gt;save($request-&gt;input('email'));
+		
+		return view('email_ok');
+	}
+
+}</code></pre><p id="r-3617457" data-claire-element-id="5749597">Maintenant, étant donné que le conteneur sait quelle classe instancier à partir de l'interface passée en paramètre, vous avez un code propre et facile à maintenir et à tester. Si vous changez d'avis sur la manière de stocker les emails il vous suffit de décider d'instancier une autre classe à partir de l'interface, tant que le contrat passé avec le contrôleur ne change pas !</p><h3 id="r-3617472" data-claire-element-id="6614376">En résumé</h3><ul id="r-3617470" data-claire-element-id="6614375"><li id="r-3617461" data-claire-element-id="5749601"><p id="r-3617460" data-claire-element-id="5749600">La base de données doit être configurée pour fonctionner avec Laravel.</p></li><li id="r-3617463" data-claire-element-id="5749603"><p id="r-3617462" data-claire-element-id="5749602">Les migrations permettent d'intervenir sur le schéma des tables de la base.</p></li><li id="r-3617465" data-claire-element-id="5749605"><p id="r-3617464" data-claire-element-id="5749604">Eloquent permet une représentation des tables sous forme d'objets pour simplifier les manipulations des enregistrements.</p></li><li id="r-3617467" data-claire-element-id="5749607"><p id="r-3617466" data-claire-element-id="5749606">Il est judicieux de prévoir la gestion du modèle dans une classe injectée dans le contrôleur.</p></li><li id="r-3617469" data-claire-element-id="6614374"><p id="r-3617468" data-claire-element-id="6614373">La barre de débogage &nbsp;donne de précieux renseignements sur les requêtes.&nbsp;</p></li></ul>
+</div>
+<div class="js-courseSelementActions sideActions">
+<ul class="sideActions__container">
+<li>
+<a class="sideActions__item  js-courseElementActions-copyUrl  js-tooltip" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617473-migrations-et-modeles#" data-tooltip="Copier le lien" data-tooltip-done="Lien copié !">
+#
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="text-center space-top">
+<form name="form" method="post" action="https://openclassrooms.com/fr/courses/3613341/parts/3617473/mark-as-complete" class=" oc-form">
+<button type="submit" id="form_submit" name="form[submit]" class="button button--primary button"><i class="icon-to_do"></i> J'ai terminé ce chapitre et je passe au suivant</button>
+<input type="hidden" id="form__token" name="form[_token]" class=" textInput textInput--hidden" value="qUnLOaMST0YlxPEvfmLu3KAOM2dvccgdu7rmMahLVrs">
+</form>
+</div>
+<nav id="course-pagination" class="course-pagination    clearfix">
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/714" class="button button--secondary  course-pagination__btn course-pagination__btn--previous">
+<i class="icon-previous"></i>
+<span>Activité : Créer un site de sondages</span>
+</a>
+<span class="course-pagination__separator"></span>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617597-les-ressources-1-2" class="button button--secondary  course-pagination__btn course-pagination__btn--next">
+<span>Les ressources (1/2)</span>
+<i class="icon-next"></i>
+</a>
+</nav>
+<div tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="popin-view-restriction_popin_title" class="popin popin--illustrated  js-popin" id="popin-view-restriction">
+<button class="popin__close-button  js-close-button" title="Fermer" aria-label="Fermer">
+<i class="icon-close" aria-hidden="true"></i>
+</button>
+<div class="popin__inner">
+<div class="popin__illustrationWrapper">
+<div class="popin__illustration illustration--balloon"></div>
+</div>
+<div class="popin__mainContainer">
+<h3 id="popin-view-restriction_popin_title" class="popin__title  js-popin-title">Waouh&nbsp;!</h3>
+<div class="popin__content  js-popin-content">
+<div class="popin__contentWrapper">
+<p>
+Très heureux de voir que nos cours vous plaisent, déjà 5 pages lues aujourd'hui ! Vous pouvez continuer la lecture de nos cours en devenant un membre de la communauté d'OpenClassrooms. C'est gratuit !
+</p>
+<p>
+Vous pourrez aussi suivre votre avancement dans le cours, faire les exercices et discuter avec les autres membres.
+</p>
+</div>
+</div>
+<div class="popin__actions  js-popin-actions">
+<span class="u--inlineBlock">
+<a class="button button--primary " href="https://openclassrooms.com/fr/register">S'inscrire</a>
+</span>
+<span class="u--inlineBlock">
+<a class="button button--secondary " href="https://openclassrooms.com/fr/login">Se connecter</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<div id="popin-not-certifying-yet_984519" class="popin" data-popin-title="Vous ne pouvez pas encore obtenir de certificat de réussite à l&#39;issue de ce cours.
+                            &lt;a href=&#39;/fr/premium&#39;&gt;&lt;i class=&#39;icon-star&#39;&gt;&lt;/i&gt; Devenez Premium&lt;/a&gt;
+                    ">
+<img alt="Exemple de certificat de réussite" src="./Migrations et modèles - Découvrez le framework PHP Laravel - OpenClassrooms_files/certif.jpg">
+</div>
+<div id="popin-not-certifying-yet_123717" class="popin" data-popin-title="Vous ne pouvez pas encore obtenir de certificat de réussite à l&#39;issue de ce cours.
+                            &lt;a href=&#39;/fr/premium&#39;&gt;&lt;i class=&#39;icon-star&#39;&gt;&lt;/i&gt; Devenez Premium&lt;/a&gt;
+                    ">
+<img alt="Exemple de certificat de réussite" src="./Migrations et modèles - Découvrez le framework PHP Laravel - OpenClassrooms_files/certif.jpg">
+</div>
+</div>
+<aside id="content-with-sidebar" class="contentWithSidebar__sidebar  js-contentWithSidebar-slidingElement">
+<nav class="col-nav">
+<div id="tab-courseMenu" class="col-nav__inner js-sidebar-inner">
+<div class="col-nav__block  col-nav__block--summary">
+<div class="side-paginate">
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/714" class="side-paginate__previous" title="Chapitre précédent">
+<i class="icon-previous"></i>
+</a>
+<span class="side-paginate__separator"></span>
+<h6 class="side-paginate__title">
+Les bases de données
+</h6>
+<span class="side-paginate__separator"></span>
+<a href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617597-les-ressources-1-2" class="side-paginate__next" title="Chapitre suivant">
+<i class="icon-next"></i>
+</a>
+</div>
+<div class="col-nav__block--summary-list">
+<ol class="col-nav__chapters">
+<li class="selected">
+<span class="col-nav__chapterTitle">Migrations et modèles</span>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617597-les-ressources-1-2">Les ressources (1/2)</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3617795-les-ressources-2-2-et-les-erreurs">Les ressources (2/2) et les erreurs</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618047-lauthentification">L'authentification</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618320-la-relation-1-n">La relation 1:n</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618550-la-relation-n-n">La relation n:n</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618722-les-commandes-et-les-assistants">Les commandes et les assistants</a>
+</li>
+<li class="">
+<a class="col-nav__chapterTitle" href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/3618880-query-builder">Query Builder</a>
+</li>
+</ol>
+<div class="tocExercise"><ul class="tocExercise__list"><li class="tocExercise__item "><a class="tocExercise__link " href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/706"><i class="tocExercise__icon icon-test"></i><span class="tocExercise__text">Quiz : Quiz 2</span></a></li><li class="tocExercise__item "><a class="tocExercise__link " href="https://openclassrooms.com/fr/courses/3613341-decouvrez-le-framework-php-laravel/exercises/715"><i class="tocExercise__icon icon-test"></i><span class="tocExercise__text">Activité : Construisez un site de sondages avec une base de données</span></a></li></ul></div> </div>
+</div>
+<div class="col-nav__block col-nav__block--button">
+<a href="https://openclassrooms.com/forum/categorie/php" class="button button--secondary">
+Accéder au forum
+</a>
+</div>
+<div class="socialNetwork col-nav__block">
+<ul class="socialButtons  js-socialButtons" data-options="
+                title: &#39;Migrations et modèles @OCFrance&#39;,
+        mailTitle: &#39;Cours &quot;Migrations et modèles&quot; sur OpenClassrooms&#39;,
+        mailContent: &#39;Découvrez le cours &quot;Migrations et modèles&quot; sur OpenClassrooms.&#39;">
+<li>
+<a class="roundIcon  roundIcon--twitter addthis_button_twitter  js-socialButtons-btn" data-tooltip="Partagez sur Twitter">
+<i class="roundIcon__icon  icon-twitter"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  roundIcon--facebook  addthis_button_facebook  js-socialButtons-btn" data-tooltip="Partagez sur Facebook">
+<i class="roundIcon__icon  icon-facebook"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  roundIcon--googlePlus  addthis_button_google_plusone_share  js-socialButtons-btn" data-tooltip="Partagez sur Google+">
+<i class="roundIcon__icon  icon-google"></i>
+</a>
+</li>
+<li>
+<a class="roundIcon  addthis_button_email  js-socialButtons-btn  js-socialButtons-email" data-tooltip="Partagez par e-mail">
+<i class="roundIcon__icon  icon-letter"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</aside>
+</div>
+</div>
+</div>
+<footer id="course-footer" class="alt-section noMarginBottom">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="grid-inner-content  courseFooter">
+<div class="courseFooter__authorsOnly course-bottom__category">
+<h2 class="highlighted">
+Le professeur
+</h2>
+<div>
+<a itemprop="author" itemscope="" itemtype="http://schema.org/Person" href="https://openclassrooms.com/fr/membres/bestmomo-15600" class="no-underlined">
+<div class="course-bottom__text-illustrated">
+<span data-author="Maurice Chavelli" data-image-cdn-background-image="https://sdz-upload.s3.amazonaws.com/prod/users/avatars/portrait26.jpg" data-image-cdn-width="120"></span>
+<h4 itemprop="name">Maurice Chavelli</h4>
+<p itemprop="description">
+Développeur retraité qui se consacre à l'enseignement des technologies du web.
+</p>
+</div>
+</a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</footer>
+</article>
+</main>
+</div>
+<div id="footerWrapper">
+<footer id="footer" class="oc-footer">
+<hr style="margin-bottom: 8px">
+<div class="grid-wrapper">
+<div class="grid-inner">
+<div class="oc-footer__item">
+<div class="oc-footer__itemTitle"><span class="skeleton" style="height: 20px; width: 80%"></span></div>
+<ul class="oc-footer__linksList">
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 70%"></span></a></p>
+</li>
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 60%"></span></a></p>
+</li>
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 65%"></span></a></p>
+</li>
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footer__item">
+<div class="oc-footer__itemTitle"><span class="skeleton" style="height: 20px; width: 85%"></span></div>
+<ul class="oc-footer__linksList">
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 60%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footer__item">
+<div class="oc-footer__itemTitle"><span class="skeleton" style="height: 20px; width: 75%"></span></div>
+<ul class="oc-footer__linksList">
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 65%"></span></a></p>
+</li>
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 50%"></span></a></p>
+</li>
+<li class="oc-footer__linksListItem">
+<p><a tabindex="inherit"><span class="skeleton" style="height: 14px; width: 40%"></span></a></p>
+</li>
+</ul>
+</div>
+<div class="oc-footer__item">
+<span class="skeleton" style="height: 25px; width: 65%"></span>
+<div class="oc-footer__socialButtonWrapper">
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+<div><span class="skeleton skeleton--round" style="width: 40px; height: 40px;"></span></div>
+</div>
+<div><span class="skeleton skeleton--width50" style="height: 40px;"></span></div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div id="showDisclaimer" class="cookiesDisclaimer"></div>
+
+<script type="text/javascript">
+    window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
+    window.analytics.load('mou95e6tdn');
+</script>
+<script>App.scripts.push("https://cdn.polyfill.io/v2/polyfill.min.js?features=default,es6,IntersectionObserver,Object.values,Array.prototype.includes,Array.prototype.findIndex,Intl.~locale.fr");</script>
+<script>App.scripts.push("/js/oc/packages/vendors-454a41bb.js");</script>
+<script>App.scripts.push("/js/oc/packages/common-76ddfd30.js");</script>
+
+<script>App.scripts.push("/js/oc/packages/courseView-c82d51d6.js");</script>
+
+<script>
+    (function () {
+        function loadScripts(cb) {
+            App.scripts.forEach(function (src, index) {
+                var script = document.createElement('script');
+                script.src = src;
+                script.async = false;
+                document.body.appendChild(script);
+
+                if (cb && index === App.scripts.length - 1) {
+                    script.onload = cb;
+                }
+            });
+        }
+
+        function boot() {
+            loadScripts(function () {
+                if (App.modules) {
+                    App.modules.startAll();
+                }
+            });
+        }
+
+        if (window.addEventListener) {
+            window.addEventListener('load', boot, false);
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', boot);
+        } else {
+            window.onload = boot;
+        }
+    }());
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"90dc06697a","applicationID":"20302107","transactionName":"NANaYkJXC0ICAhdYVw1Je0NDQgpcTA4AblsPB1FEVWkGXhYTEFRnEwdKQm9GBEMXPhVYXRQ=","queueTime":0,"applicationTime":184,"atts":"GERZFApNGEw=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- saved from url=(0505)https://pippio.com/api/sync?pid=1391&ref=http%3A%2F%2Fwww.portageo.fr%2Fblog%2Fnewsletters-portageo%2Ffreelances-quels-tarifs-pratiquer-pour-vos-missions%2F&it=1&iv=c3fllcei9bg5mo&it=4&iv=30babaeacfd913433feb79e17c0c95f9&it=4&iv=24255d32708a8776c544442e8265126f60268b59&it=4&iv=bfe1b37b3e9c997d3470c02d0a6488226619640488ad044dab8fa024cb968236&it=4&iv=4a4acdb96d206047cc1d40cdf31a72f5&it=4&iv=b707e9b331f9f925d57fb8c0a18f148928748520&it=4&iv=59379a40c055412a2cc8e96db732e7c34ec0f7c49078fbb93d633fe0c825d7b0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><meta name="referrer" content="no-referrer"><script>
+		var f = function () {
+	function loadChains(chains, limit, onChainDone) {
+    function newImageLoader(url) {
+        return function () {
+            var e = new Image();
+            addListeners(e);
+            e.src = url;
+        };
+    }
+
+    function newScriptLoader(url) {
+        return function () {
+            var e = document.createElement('script');
+            e.type = 'text/javascript';
+            e.async = true;
+            addListeners(e);
+            e.src = url;
+            document.head.appendChild(e);
+        };
+    }
+
+    function newIframeLoader(url) {
+        return function () {
+            var e = document.createElement('iframe');
+            e.style.display = 'none';
+            e.width = 1;
+            e.height = 1;
+            addListeners(e);
+            e.src = url;
+            document.body.appendChild(e);
+        };
+    }
+
+    function addListeners(e) {
+        addLoadErrorListeners(e, loadNext);
+        if (typeof onChainDone === 'function') {
+            addLoadErrorListeners(e, onChainDone);
+        }
+    }
+
+    function addLoadErrorListeners(e, listener) {
+        if (typeof e.addEventListener === 'function') {
+            e.addEventListener('load', listener, false);
+            e.addEventListener('error', listener, false);
+        } else if (typeof e.attachEvent === 'function') {
+            e.attachEvent('onload', listener);
+            e.attachEvent('onerror', listener);
+        }
+    }
+
+    function loadNext() {
+        var next = loaders.shift();
+        if (typeof next === "function") {
+            setTimeout(next);
+        }
+    }
+
+    var loaders = chains.reduce(function (acc, value) {
+        var mode = value[0];
+        var url = value[1];
+
+        switch (mode) {
+            case 'image':
+                acc.push(newImageLoader(url));
+                break;
+            case 'script':
+                acc.push(newScriptLoader(url));
+                break;
+            case 'iframe':
+                acc.push(newIframeLoader(url));
+                break;
+        }
+        return acc;
+    }, []);
+
+    for (var i = 0; i < limit; i++) {
+        loadNext();
+    }
+}
+
+	var chains = [];
+	chains.push(['image', 'https://id.rlcdn.com/463636.gif']);
+	chains.push(['image', 'https://ei.rlcdn.com/448046.gif?n=1&partner_site_id=1017&m=4a4acdb96d206047cc1d40cdf31a72f5&s=24255d32708a8776c544442e8265126f60268b59&s256=59379a40c055412a2cc8e96db732e7c34ec0f7c49078fbb93d633fe0c825d7b0']);
+
+	loadChains(chains, 10, (typeof onDone === "function") ? onDone : null);
+		};
+
+		if (document.body) { f(); } else { document.addEventListener('DOMContentLoaded', f); }
+	</script>
+</head><body></body></html>
